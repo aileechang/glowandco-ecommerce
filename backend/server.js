@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import 'dotenv/config';
-import { connectDB, sequelize } from './config/postgres.js';
+import { connectDB } from './config/sequelize.js';
 import connectCloudinary from './config/cloudinary.js';
 
 // App config
@@ -9,13 +9,6 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 connectDB();
 connectCloudinary();
-
-// Sync models
-sequelize.sync({ force: false })
-    .then(() => {
-        console.log('Database synchronized');
-    })
-    .catch(err => console.log('Error syncing database:', err));
 
 // Middlewares
 app.use(express.json());

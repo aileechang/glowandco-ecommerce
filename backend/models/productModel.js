@@ -1,5 +1,5 @@
 import { DataTypes } from 'sequelize';
-import { sequelize } from '../config/postgres';
+import { sequelize } from '../config/sequelize';
 import 'dotenv/config';
 
 const Product = sequelize.define('Product', {
@@ -40,8 +40,8 @@ const Product = sequelize.define('Product', {
         allowNull: false,
     },
 }, {
-    timestamps: true,
     tableName: 'products',
+    timestamps: true,
 });
 
 export default Product;
