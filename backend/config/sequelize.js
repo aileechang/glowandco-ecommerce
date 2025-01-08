@@ -6,7 +6,7 @@ const sequelize = new Sequelize(process.env.SUPABASE_URL, {
     dialect: 'postgres',
     dialectOptions: {
         ssl: {
-          require: true, // Supabase requires SSL for database connections
+          require: true,
           rejectUnauthorized: false,
         },
     }

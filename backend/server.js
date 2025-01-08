@@ -3,10 +3,11 @@ import cors from 'cors';
 import 'dotenv/config';
 import { connectDB } from './config/sequelize.js';
 import connectCloudinary from './config/cloudinary.js';
+import userRouter from './routes/userRoute.js';
 
 // App config
 const app = express();
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4001;
 connectDB();
 connectCloudinary();
 
@@ -15,6 +16,7 @@ app.use(express.json());
 app.use(cors());
 
 // Api endpoints
+app.use('/api/user', userRouter);
 
 app.get('/', (req, res) => {
     res.send('Welcome to the E-commerce API');

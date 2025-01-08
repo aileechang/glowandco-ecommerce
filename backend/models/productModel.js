@@ -1,6 +1,5 @@
 import { DataTypes } from 'sequelize';
-import { sequelize } from '../config/sequelize';
-import 'dotenv/config';
+import { sequelize } from '../config/sequelize.js';
 
 const Product = sequelize.define('Product', {
     name: {
