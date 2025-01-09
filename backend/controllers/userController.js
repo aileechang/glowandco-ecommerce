@@ -7,7 +7,7 @@ const createToken = (id) => {
     return jwt.sign({ id }, process.env.JWT_SECRET);
 }
 
-// Route for user registration
+// Functionality for user registration
 const registerUser = async (req, res) => {
     try {
         const { name, email, password, } = req.body;
@@ -47,7 +47,7 @@ const registerUser = async (req, res) => {
     }
 };
 
-// Route for user login
+// Functionality for user login
 const loginUser = async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -76,7 +76,7 @@ const loginUser = async (req, res) => {
     }
 };
 
-// Route for admin login
+// Functionality for admin login
 const adminLogin = async (req, res) => {
 
 };

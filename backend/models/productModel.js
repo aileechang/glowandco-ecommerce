@@ -22,7 +22,7 @@ const Product = sequelize.define('Product', {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    subcategory: {
+    subCategory: {
         type: DataTypes.STRING,
         allowNull: false,
     },
