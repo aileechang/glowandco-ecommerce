@@ -48,17 +48,47 @@ const addProduct = async (req, res) => {
 
 // Functionality to remove a product
 const removeProduct = async (req, res) => {
+    try {
+        const result = await Product.destroy({
+            where: { id: req.body.id }
+        });
 
+        if (result) {
+            res.json({ success: true, message: 'Product removed' });
+        } else {
+            res.json({ success: false, message: 'Product not found' });
+        }
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: error.message });
+    }
 }
 
 // Functionality to list products
 const listProducts = async (req, res) => {
-
+    try {
+        const products = await Product.findAll({});
+        res.json({ success: true, products });
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: error.message });
+    }
 }
 
 // Functionality to get a single product
 const singleProduct = async (req, res) => {
-
+    try {
+        const { productId } = req.body;
+        const product = await Product.findOne({ where: { id: productId } });
+        if (product) {
+            res.json({ success: true, product });
+        } else {
+            res.json({ success: false, message: 'Product not found' });
+        }
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: error.message });
+    }
 }
 
 export { addProduct, removeProduct, listProducts, singleProduct };
