@@ -11,10 +11,9 @@ const addProduct = async (req, res) => {
         const image1 = req.files?.image1?.[0]?.path || null;
         const image2 = req.files?.image2?.[0]?.path || null;
         const image3 = req.files?.image3?.[0]?.path || null;
-        const image4 = req.files?.image4?.[0]?.path || null;
 
         // Filter null/undefined paths
-        const images = [image1, image2, image3, image4].filter((item) => item !== null && item !== undefined);
+        const images = [image1, image2, image3].filter((item) => item !== null && item !== undefined);
 
         // Upload images to Cloudinary
         let imagesUrl = await Promise.all(
@@ -23,8 +22,11 @@ const addProduct = async (req, res) => {
                 return result.secure_url;
             })
         )
+        console.log(imagesUrl);
 
         // Create the product in the database
+        const timestampInSeconds = Math.floor(Date.now() / 1000);
+
         const product = await Product.create({
             name,
             description,
@@ -34,7 +36,7 @@ const addProduct = async (req, res) => {
             subCategory,
             sizes: JSON.parse(sizes),
             bestseller: bestseller === 'true' ? true : false,
-            date: Date.now(),
+            date: timestampInSeconds,
         });
 
         res.json({ success: true, message: 'Product added' });
