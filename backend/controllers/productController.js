@@ -49,12 +49,13 @@ const addProduct = async (req, res) => {
 // Functionality to remove a product
 const removeProduct = async (req, res) => {
     try {
+        const { id, name } = req.body;
         const result = await Product.destroy({
-            where: { id: req.body.id }
+            where: { id }
         });
 
         if (result) {
-            res.json({ success: true, message: 'Product removed' });
+            res.json({ success: true, message: `${name} removed` });
         } else {
             res.json({ success: false, message: 'Product not found' });
         }
