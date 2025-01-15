@@ -28,7 +28,7 @@ const Product = sequelize.define('Product', {
     },
     sizes: {
         type: DataTypes.ARRAY(DataTypes.STRING),
-        allowNull: false,
+        allowNull: true,
     },
     bestseller: {
         type: DataTypes.BOOLEAN,

@@ -39,7 +39,7 @@ const addProduct = async (req, res) => {
             date: timestampInSeconds,
         });
 
-        res.json({ success: true, message: 'Product added' });
+        res.json({ success: true, message: `${name} added` });
     } catch (error) {
         console.log(error);
         res.json({ success: false, message: error.message });
