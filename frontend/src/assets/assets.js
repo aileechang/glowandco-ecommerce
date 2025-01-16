@@ -55,7 +55,7 @@ import accessories from './accessories.png';
 import beauty from './beauty.png';
 
 // Icon Imports
-import { BsHandbag, BsTrash3, BsPatchCheckFill, BsSearch, BsStar, BsStarFill } from 'react-icons/bs';
+import { BsHandbag, BsPatchCheckFill, BsSearch, BsStar, BsStarFill } from 'react-icons/bs';
 import { RiArrowDropDownLine, RiExchangeFundsFill, RiMenuLine } from 'react-icons/ri';
 import { FaRegUser } from 'react-icons/fa';
 import { BiSupport, BiX } from 'react-icons/bi';
@@ -67,7 +67,6 @@ export const assets = {
     logo,
     hero,
     BsHandbag,
-    BsTrash3,
     RiArrowDropDownLine,
     RiExchangeFundsFill,
     FaRegUser,
