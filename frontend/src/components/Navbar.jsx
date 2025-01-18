@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { assets } from "../assets/assets";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 import {
   RiSearchLine,
   RiUser3Line,
@@ -8,9 +8,13 @@ import {
   RiMenuFill,
   RiCloseLargeFill,
 } from "react-icons/ri";
+import { ShopContext } from "../context/ShopContext";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
+  const { setShowSearch } = useContext(ShopContext);
+  const location = useLocation();
+  const isCollectionPage = location.pathname === "/collection";
 
   return (
     <div className="flex items-center justify-between py-5 font-medium">
@@ -38,7 +42,9 @@ const Navbar = () => {
       </ul>
 
       <div className="flex items-center gap-6">
-        <RiSearchLine className="w-5 h-5 cursor-pointer" />
+        {isCollectionPage && (
+          <RiSearchLine onClick={()=>setShowSearch(true)} className="w-5 h-5 cursor-pointer" />
+        )}
 
         <div className="group relative">
           <RiUser3Line className="w-5 h-5 cursor-pointer" />
