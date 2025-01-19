@@ -12,7 +12,7 @@ import { ShopContext } from "../context/ShopContext";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
-  const { setShowSearch } = useContext(ShopContext);
+  const { setShowSearch, getCartCount } = useContext(ShopContext);
   const location = useLocation();
   const isCollectionPage = location.pathname === "/collection";
 
@@ -59,7 +59,7 @@ const Navbar = () => {
         <Link to="/cart" className="relative">
           <RiShoppingCartLine className="w-5 h-5 min-w-5" />
           <p className="absolute right-[-6px] bottom-[-6px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]">
-            10
+            {getCartCount()}
           </p>
         </Link>
         <RiMenuFill
