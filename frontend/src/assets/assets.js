@@ -46,6 +46,10 @@ import womens_shoes0103 from './womens_shoes0103.png';
 
 // Image Imports
 import logo from './logo.png';
+import stripe from './stripe.png';
+import razorpay from './razorpay.png';
+import visa from './visa.png';
+import mastercard from './mastercard.png';
 import hero from './hero.jpg';
 import aboutus from './aboutus.jpg';
 import contactus from './contactus.jpg';
@@ -53,33 +57,16 @@ import modelpose from './modelpose.jpg';
 import accessories from './accessories.png';
 import beauty from './beauty.png';
 
-// Icon Imports
-import { BsHandbag, BsPatchCheckFill, BsSearch, BsStar, BsStarFill } from 'react-icons/bs';
-import { RiArrowDropDownLine, RiExchangeFundsFill, RiMenuLine } from 'react-icons/ri';
-import { FaRegUser } from 'react-icons/fa';
-import { BiSupport, BiX } from 'react-icons/bi';
-import { SiRazorpay, SiStripe } from 'react-icons/si';
-
-
 // Export assets
 export const assets = {
     logo,
+    stripe,
+    razorpay,
+    visa,
+    mastercard,
     hero,
-    BsHandbag,
-    RiArrowDropDownLine,
-    RiExchangeFundsFill,
-    FaRegUser,
-    BsPatchCheckFill,
-    BsSearch,
-    BsStar,
-    BsStarFill,
-    BiSupport,
-    RiMenuLine,
     aboutus,
     contactus,
-    SiRazorpay,
-    SiStripe,
-    BiX,
     modelpose,
     accessories,
     beauty
