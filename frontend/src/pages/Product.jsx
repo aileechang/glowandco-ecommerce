@@ -12,19 +12,18 @@ const Product = () => {
   const [size, setSize] = useState('');
 
   const fetchProductData = async () => {
-    products.map((item)=> {
-      if (item.id === productId) {
-        setProductData(item);
-        setImage(item.image[0]);
-        return null;
-      }
-    })
+    const product = products.find((item) => String(item.id) === productId);
+    if (product) {
+      setProductData(product);
+      setImage(product.image[0]);
+    }
+  };
 
-  }
-
-  useEffect(()=> {
-    fetchProductData();
-  }, [productId, products])
+  useEffect(() => {
+    if (products.length > 0) {
+      fetchProductData();
+    }
+  }, [productId, products]);
 
   return productData ? (
     <div className='border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100'>

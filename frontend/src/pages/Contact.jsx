@@ -15,7 +15,7 @@ const Contact = () => {
         <div className='flex flex-col justify-center items-start gap-6'>
           <p className='font-semibold text-xl text-gray-600'>Our Store</p>
           <p className='text-gray-500'>2890 Regional Pkwy Suite 101<br /> Las Vegas, NV 89102</p>
-          <p className='text-gray-500'>Phone: (702) 882-0663 <br /> Email: admin@urbanapparel.com</p>
+          <p className='text-gray-500'>Phone: (702) 882-0663 <br /> Email: contact@urbanapparel.com</p>
           <p className='font-semibold text-xl text-gray-600'>Careers</p>
           <p className='text-gray-500'>Learn more about our team and job openings.</p>
           <button className='border border-black px-8 py-4 text-sm hover:bg-black hover:text-white transition-all duration-500'>Explore Jobs</button>
