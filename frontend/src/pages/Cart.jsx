@@ -14,7 +14,6 @@ const Cart = () => {
     if (cartItems && Object.keys(cartItems).length > 0 && products.length > 0) {
       const tempData = [];
 
-      // Iterate over cartItems to build the tempData array
       for (const itemId in cartItems) {
         for (const size in cartItems[itemId]) {
           const quantity = cartItems[itemId][size];
