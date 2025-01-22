@@ -30,6 +30,18 @@ const Orders = ({ token }) => {
     }
   };
 
+  const handleStatus = async (e, orderId) => {
+    try {
+      const response = await axios.post(`${backendUrl}/api/order/status`, {orderId, status: e.target.value}, {headers: { token }})
+      if (response.data.success) {
+        await fetchAllOrders();
+      }
+    } catch (error) {
+      console.log(error)
+      toast.error(response.data.message)
+    }
+  }
+
   useEffect(() => {
     fetchAllOrders();
   }, [token]);
@@ -40,7 +52,7 @@ const Orders = ({ token }) => {
       <div>
         {orders.map((order, index) => (
           <div className="grid grid-cols-1 sm:grid-cols-[0.5fr_2fr_1fr] lg:grid-cols-[0.5fr_2fr_1fr_1fr_1fr] gap-3 items-start border-2 border-gray-200 p-5 md:p-8 my-3 md:my-4 text-xs sm:text-sm text-gray-700" key={index}>
-            <BsBoxSeam className="w-10 h-10"/>
+            <BsBoxSeam className="w-9 h-9"/>
             <div>
               <div>
                 {order.items.map((item, index) => {
@@ -59,7 +71,7 @@ const Orders = ({ token }) => {
                   }
                 })}
               </div>
-              <p className="mt-3 mb-2 font-medium">{order.address.firstName + " " + order.address.lastName}</p>
+              <p className="mt-3 mb-2 font-semibold">{order.address.firstName + " " + order.address.lastName}</p>
               <div>
                 <p>{`${order.address.street},`}</p>
                 <p>{`${order.address.city}, ${order.address.state}, ${order.address.country} ${order.address.zipcode}`}</p>
@@ -73,12 +85,12 @@ const Orders = ({ token }) => {
               <p>Date: {new Date(order.date).toLocaleDateString()}</p>
             </div>
             <p className="text-sm sm:text-[15px]">{currency}{order.amount}</p>
-            <select className="p-2 font-semibold">
-              <option value="Order Placed"></option>
-              <option value="Processing"></option>
-              <option value="Shipped"></option>
-              <option value="Out for Delivery"></option>
-              <option value="Delivered"></option>
+            <select onChange={(e)=>handleStatus(e, order.id)} value={order.status} className="p-2 font-semibold">
+              <option value="Order Placed">Order Placed</option>
+              <option value="Processing">Processing</option>
+              <option value="Shipped">Shipped</option>
+              <option value="Out for Delivery">Out for Delivery</option>
+              <option value="Delivered">Delivered</option>
             </select>
           </div>
         ))}

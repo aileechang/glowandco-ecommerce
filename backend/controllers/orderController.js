@@ -70,11 +70,23 @@ const userOrders = async (req, res) => {
         res.json({ success: false, message: error.message });
     }
 };
-/*
+
 // Update order status for admin
 const updateStatus = async (req, res) => {
+    try {
+        const { orderId, status } = req.body;
 
-}*/
+        await Order.update(
+            { status },
+            { where: { id: orderId } }
+        );
+
+        res.json({ success: true, message: 'Status updated' });
+    } catch (error) {
+        res.json({ success: false, message: error.message });
+    }
+}
+
 
 export {
     placeOrder,
@@ -83,5 +95,5 @@ export {
     placeOrderRazorpay,*/
     allOrders,
     userOrders,
-   /* updateStatus */
+    updateStatus
 }
