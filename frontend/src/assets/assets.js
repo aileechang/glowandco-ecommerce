@@ -47,7 +47,7 @@ import womens_shoes0103 from './womens_shoes0103.png';
 // Image Imports
 import logo from './logo.png';
 import stripe from './stripe.png';
-import razorpay from './razorpay.png';
+import paypal from './paypal.png';
 import visa from './visa.png';
 import mastercard from './mastercard.png';
 import hero from './hero.jpg';
@@ -61,7 +61,7 @@ import beauty from './beauty.png';
 export const assets = {
     logo,
     stripe,
-    razorpay,
+    paypal,
     visa,
     mastercard,
     hero,

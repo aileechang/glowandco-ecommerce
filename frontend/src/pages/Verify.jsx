@@ -1,5 +1,5 @@
-import React, { useContext, useEffect } from 'react'
-import { ShopContext } from '../context/ShopContext'
+import React, { useContext, useEffect } from 'react';
+import { ShopContext } from '../context/ShopContext';
 import { useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -10,6 +10,7 @@ const Verify = () => {
 
     const success = searchParams.get('success');
     const orderId = searchParams.get('orderId');
+    const paymentMethod = searchParams.get('paymentMethod');
 
     const verifyPayment = async () => {
         try {
@@ -17,30 +18,32 @@ const Verify = () => {
                 return null;
             }
 
-            const response = await axios.post(`${backendUrl}/api/order/verifyStripe`, {success, orderId}, { headers: { token }});
+            let response;
+            if (paymentMethod === 'Stripe') {
+                response = await axios.post(`${backendUrl}/api/order/verifyStripe`, { success, orderId }, { headers: { token } });
+            } else if (paymentMethod === 'PayPal') {
+                response = await axios.post(`${backendUrl}/api/order/verifyPayPal`, { success, orderId }, { headers: { token } });
+            }
 
-            if (response.data.success) {
-                setCartItems({})
-                navigate('/orders')
+            if (response?.data?.success) {
+                setCartItems({});
+                navigate('/orders');
             } else {
-                navigate('/cart')
+                navigate('/cart');
             }
 
         } catch (error) {
-            console.log(error)
+            console.log(error);
             toast.error(error.message);
         }
     }
 
-    useEffect(()=> {
-        verifyPayment()
-    }, [token])
+    useEffect(() => {
+        verifyPayment();
+    }, [token]);
 
-  return (
-    <div>
-      
-    </div>
-  )
+    return <div></div>;
 }
 
-export default Verify
+export default Verify;
+

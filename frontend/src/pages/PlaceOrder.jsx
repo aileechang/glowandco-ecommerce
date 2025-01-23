@@ -7,7 +7,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const PlaceOrder = () => {
-  const [method, setMethod] = useState("debit/credit");
+  const [method, setMethod] = useState("PayPal");
   const {
     navigate,
     backendUrl,
@@ -66,17 +66,17 @@ const PlaceOrder = () => {
       }
 
       switch (method) {
-        // Debit/credit
-        case 'debit/credit':
-          const response = await axios.post(`${backendUrl}/api/order/place` , orderData, {headers: {token}});
-          if (response.data.success) {
-            setCartItems({})
-            navigate('/orders');
+        // Paypal
+        case 'PayPal':
+          const responsePayPal = await axios.post(`${backendUrl}/api/order/paypal` , orderData, {headers: {token}});
+          if (responsePayPal.data.success) {
+            const {session_url} = responsePayPal.data;
+            window.location.replace(session_url);
           } else {
-            toast.error(response.data.message)
+            toast.error(responsePayPal.data.message)
           }
           break;
-
+        // Stripe
         case 'stripe':
           const responseStripe = await axios.post(`${backendUrl}/api/order/stripe`, orderData, { headers: { token }})
           if (responseStripe.data.success) {
@@ -174,15 +174,20 @@ const PlaceOrder = () => {
             placeholder="Zip Code"
             required
           />
-          <input
+          <select
             onChange={handleOnChange}
             name="country"
             value={formData.country}
             className="border border-gray-300 rounded py-1.5 px-3.5 w-full"
-            type="text"
-            placeholder="Country"
             required
-          />
+          >
+            <option value="" disabled>
+              Select Country
+            </option>
+            <option value="US">United States</option>
+            <option value="CA">Canada</option>
+            <option value="GB">United Kingdom</option>
+          </select>
         </div>
         <input
           onChange={handleOnChange}
@@ -213,33 +218,18 @@ const PlaceOrder = () => {
                   method === "stripe" ? "bg-blue-400" : ""
                 }`}
               ></p>
-              <img src={assets.stripe} className="h-6 mx-4" />
+              <img src={assets.stripe} className="h-7 mx-4" />
             </div>
             <div
-              onClick={() => setMethod("razorpay")}
+              onClick={() => setMethod("PayPal")}
               className="flex items-center gap-3 border p-2 px-3 cursor-pointer"
             >
               <p
                 className={`min-w-3.5 h-3.5 border rounded-full ${
-                  method === "razorpay" ? "bg-blue-400" : ""
+                  method === "PayPal" ? "bg-blue-400" : ""
                 }`}
               ></p>
-              <img src={assets.razorpay} className="h-5 mx-4" />
-            </div>
-            <div
-              onClick={() => setMethod("debit/credit")}
-              className="flex items-center gap-3 border p-2 px-3 cursor-pointer"
-            >
-              <p
-                className={`min-w-3.5 h-3.5 border rounded-full ${
-                  method === "debit/credit" ? "bg-blue-400" : ""
-                }`}
-              ></p>
-              <img src={assets.visa} className="h-3 ml-4" />
-              <img src={assets.mastercard} className="h-4" />
-              <p className="text-gray-500 text-sm font-medium">
-                DEBIT / CREDIT CARD
-              </p>
+              <img src={assets.paypal} className="h-6 mx-4" />
             </div>
           </div>
 
