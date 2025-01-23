@@ -1,9 +1,9 @@
 import express from 'express';
 import {
     placeOrder,
-    /*
     placeOrderStripe,
-    placeOrderRazorpay,*/
+    verifyStripe,
+    /*placeOrderRazorpay,*/
     allOrders,
     userOrders,
     updateStatus
@@ -18,10 +18,14 @@ orderRouter.post('/list', adminAuth, allOrders);
 orderRouter.post('/status', adminAuth, updateStatus);
 // Payment
 orderRouter.post('/place', authUser, placeOrder);
-/*orderRouter.post('/stripe', authUser, placeOrderStripe);
-orderRouter.post('/razorpay', authUser, placeOrderRazorpay);*/
+orderRouter.post('/stripe', authUser, placeOrderStripe);
+/*orderRouter.post('/razorpay', authUser, placeOrderRazorpay);*/
 
 // User
 orderRouter.post('/userorders', authUser, userOrders);
+
+
+// Verify payment
+orderRouter.post('/verifyStripe', authUser, verifyStripe);
 
 export default orderRouter;

@@ -55,6 +55,7 @@ const Orders = ({ token }) => {
             <BsBoxSeam className="w-9 h-9"/>
             <div>
               <div>
+                <p>OrderID: {order.id}</p>
                 {order.items.map((item, index) => {
                   if (index === order.items.length - 1) {
                     return (
@@ -78,13 +79,13 @@ const Orders = ({ token }) => {
               </div>
               <p>{order.address.phone}</p>
             </div>
-            <div>
-              <p className="text-sm sm:text-[15px]">Items: {order.items.length}</p>
-              <p className="mt-3">Method: {order.paymentMethod}</p>
-              <p>Payment: {order.payment ? 'Done' : 'Pending' }</p>
+            <div className="px-3">
               <p>Date: {new Date(order.date).toLocaleDateString()}</p>
+              <p className="mt-3 text-sm sm:text-[15px]">Items: {order.items.length}</p>
+              <p className="mt-3">Method: {order.paymentMethod}</p>
+              <p className="mt-1">Payment: {order.payment ? 'Done' : 'Pending' }</p>
             </div>
-            <p className="text-sm sm:text-[15px]">{currency}{order.amount}</p>
+            <p className="text-sm sm:text-[15px]">Order Total: {currency}{order.amount}</p>
             <select onChange={(e)=>handleStatus(e, order.id)} value={order.status} className="p-2 font-semibold">
               <option value="Order Placed">Order Placed</option>
               <option value="Processing">Processing</option>
