@@ -48,8 +48,6 @@ import womens_shoes0103 from './womens_shoes0103.png';
 import logo from './logo.png';
 import stripe from './stripe.png';
 import paypal from './paypal.png';
-import visa from './visa.png';
-import mastercard from './mastercard.png';
 import hero from './hero.jpg';
 import aboutus from './aboutus.jpg';
 import contactus from './contactus.jpg';
@@ -62,8 +60,6 @@ export const assets = {
     logo,
     stripe,
     paypal,
-    visa,
-    mastercard,
     hero,
     aboutus,
     contactus,
