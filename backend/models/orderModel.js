@@ -37,6 +37,11 @@ const Order = sequelize.define('Order', {
         allowNull: false,
         defaultValue: DataTypes.NOW,
     },
+    confirmationCode: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+    },
 }, {
     tableName: 'orders'
 });
