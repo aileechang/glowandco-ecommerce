@@ -66,16 +66,6 @@ const PlaceOrder = () => {
       }
 
       switch (method) {
-        // Paypal
-        case 'PayPal':
-          const responsePayPal = await axios.post(`${backendUrl}/api/order/paypal` , orderData, {headers: {token}});
-          if (responsePayPal.data.success) {
-            const {session_url} = responsePayPal.data;
-            window.location.replace(session_url);
-          } else {
-            toast.error(responsePayPal.data.message)
-          }
-          break;
         // Stripe
         case 'stripe':
           const responseStripe = await axios.post(`${backendUrl}/api/order/stripe`, orderData, { headers: { token }})
@@ -221,7 +211,6 @@ const PlaceOrder = () => {
               <img src={assets.stripe} className="h-7 mx-4" />
             </div>
             <div
-              onClick={() => setMethod("PayPal")}
               className="flex items-center gap-3 border p-2 px-3 cursor-pointer"
             >
               <p

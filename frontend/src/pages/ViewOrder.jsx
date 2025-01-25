@@ -31,7 +31,7 @@ const ViewOrder = () => {
         <Title text1={'ORDER'} text2={'DETAILS'} />
       </div>
 
-      {order ? (
+      
         <div className="py-4 border-t border-b text-gray-700">
           <div className="flex flex-col sm:flex-row items-start justify-between gap-4">
             <div>
@@ -57,8 +57,7 @@ const ViewOrder = () => {
           <div className="mt-8">
             <h3 className="text-xl font-semibold mb-4">Items in Order</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {orderItems.length > 0 ? (
-                orderItems.map((item, index) => (
+              {orderItems.map((item, index) => (
                   <div key={index} className="border rounded-md p-4 shadow-lg">
                     <div className="flex flex-col items-center">
                       <img
@@ -71,16 +70,10 @@ const ViewOrder = () => {
                       <p className="text-gray-600">Quantity: {item.quantity}</p>
                     </div>
                   </div>
-                ))
-              ) : (
-                <p>No items found in this order.</p>
-              )}
+                ))}
             </div>
           </div>
         </div>
-      ) : (
-        <p>Loading order details...</p>
-      )}
     </div>
   );
 };

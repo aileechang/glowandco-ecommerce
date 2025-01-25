@@ -36,8 +36,7 @@ const Orders = () => {
       </div>
 
       <div>
-        {orders.length > 0 ? (
-          orders.map((order) => (
+        {orders.map((order) => (
             <div key={order.id} className="py-4 border-t border-b text-gray-700">
               <div className="flex flex-col sm:flex-row items-start justify-between gap-4">
                 <div>
@@ -64,10 +63,7 @@ const Orders = () => {
                 </Link>
               </div>
             </div>
-          ))
-        ) : (
-          <p>Loading orders...</p>
-        )}
+          ))}
       </div>
     </div>
   );

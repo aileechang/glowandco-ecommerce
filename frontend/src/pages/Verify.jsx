@@ -21,8 +21,6 @@ const Verify = () => {
             let response;
             if (paymentMethod === 'Stripe') {
                 response = await axios.post(`${backendUrl}/api/order/verifyStripe`, { success, orderId }, { headers: { token } });
-            } else if (paymentMethod === 'PayPal') {
-                response = await axios.post(`${backendUrl}/api/order/verifyPayPal`, { success, orderId }, { headers: { token } });
             }
 
             if (response?.data?.success) {
