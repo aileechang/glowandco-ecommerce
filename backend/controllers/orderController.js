@@ -127,6 +127,28 @@ const userOrders = async (req, res) => {
   }
 };
 
+// Order details for user
+const getDetails = async (req, res) => {
+  try {
+    const { confirmationCode } = req.body;
+
+    if (!confirmationCode) {
+      return res.json({ success: false, message: "Confirmation code required" });
+    }
+
+    const order = await Order.findOne({ where: { confirmationCode }});
+
+    if (!order) {
+      return res.json({ success: false, message: "Order not found" });
+    }
+
+    res.json({ success: true, order })
+  } catch (error) {
+    console.log(error)
+    res.json({ success: false, message: error.message })
+  }
+}
+
 // Update order status for admin
 const updateStatus = async (req, res) => {
   try {
@@ -145,5 +167,6 @@ export {
   verifyStripe,
   allOrders,
   userOrders,
+  getDetails,
   updateStatus,
 };
