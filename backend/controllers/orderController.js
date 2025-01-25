@@ -8,15 +8,17 @@ import generateConfirmationCode from "../utils/generateConfirmationCode.js";
 const currency = "usd";
 const shippingFee = 10;
 
-// Initialize gateway
+// Initialize stripe
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 // Place orders using stripe
-const placeOrderStripe = async (req, res) => {
+const createOrderStripe = async (req, res) => {
   try {
     const { userId, items, amount, address } = req.body;
 
     const { origin } = req.headers;
+    
+    const confirmationCode = generateConfirmationCode();
 
     const order = await Order.create({
       userId,
@@ -25,6 +27,7 @@ const placeOrderStripe = async (req, res) => {
       address,
       paymentMethod: "Stripe",
       payment: false,
+      confirmationCode,
     });
 
     const line_items = items.map((item) => ({
@@ -138,7 +141,7 @@ const updateStatus = async (req, res) => {
 };
 
 export {
-  placeOrderStripe,
+  createOrderStripe,
   verifyStripe,
   allOrders,
   userOrders,

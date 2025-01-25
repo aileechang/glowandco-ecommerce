@@ -1,6 +1,6 @@
 import express from 'express';
 import {
-    placeOrderStripe,
+    createOrderStripe,
     verifyStripe,
     allOrders,
     userOrders,
@@ -16,7 +16,7 @@ orderRouter.post('/list', adminAuth, allOrders);
 orderRouter.post('/status', adminAuth, updateStatus);
 
 // Payment
-orderRouter.post('/stripe', authUser, placeOrderStripe);
+orderRouter.post('/stripe', authUser, createOrderStripe);
 
 // User
 orderRouter.post('/userorders', authUser, userOrders);

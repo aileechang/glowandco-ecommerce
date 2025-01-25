@@ -9,12 +9,12 @@ import Cart from './pages/Cart'
 import Login from './pages/Login'
 import PlaceOrder from './pages/PlaceOrder'
 import Orders from './pages/Orders'
+import OrderDetails from './pages/OrderDetails';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import SearchBar from './components/SearchBar';
 import { ToastContainer, toast } from 'react-toastify';
 import Verify from './pages/Verify';
-import ViewOrder from './pages/ViewOrder';
 
 const App = () => {
   return (
@@ -32,7 +32,7 @@ const App = () => {
         <Route path='/login' element={<Login/>} />
         <Route path='/place-order' element={<PlaceOrder/>} />
         <Route path='/orders' element={<Orders/>} />
-        <Route path='/vieworder/:confirmationCode' element={<ViewOrder/>} />
+        <Route path='/details/:confirmationCode' element={<OrderDetails />} />
         <Route path='/verify' element={<Verify />} />
       </Routes>
 
