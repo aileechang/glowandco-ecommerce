@@ -4,7 +4,7 @@ import {
     verifyStripe,
     allOrders,
     userOrders,
-    getDetails,
+    //getDetails,
     updateStatus
 } from '../controllers/orderController.js';
 import adminAuth from '../middleware/adminAuth.js';
@@ -21,7 +21,7 @@ orderRouter.post('/stripe', authUser, createOrderStripe);
 
 // User
 orderRouter.post('/userorders', authUser, userOrders);
-orderRouter.post('/orderdetails', authUser, getDetails);
+//orderRouter.post('/orderdetails', authUser, getDetails);
 
 // Verify payment
 orderRouter.post('/verifyStripe', authUser, verifyStripe);

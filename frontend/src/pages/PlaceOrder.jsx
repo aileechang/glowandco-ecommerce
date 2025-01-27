@@ -7,9 +7,8 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const PlaceOrder = () => {
-  const [method, setMethod] = useState("PayPal");
+  const [method, setMethod] = useState("Stripe");
   const {
-    navigate,
     backendUrl,
     cartItems,
     setCartItems,
@@ -209,16 +208,6 @@ const PlaceOrder = () => {
                 }`}
               ></p>
               <img src={assets.stripe} className="h-7 mx-4" />
-            </div>
-            <div
-              className="flex items-center gap-3 border p-2 px-3 cursor-pointer"
-            >
-              <p
-                className={`min-w-3.5 h-3.5 border rounded-full ${
-                  method === "PayPal" ? "bg-blue-400" : ""
-                }`}
-              ></p>
-              <img src={assets.paypal} className="h-6 mx-4" />
             </div>
           </div>
 

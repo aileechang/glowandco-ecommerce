@@ -59,13 +59,13 @@ const Orders = () => {
                   </p>
                 </div>
                 <p className="sm:text-base font-semibold">
-                  Payment:{" "}
+                  Items:{" "}
                   <span className="font-normal text-gray-600">
-                    {order.paymentMethod}
+                    {order.items.length}
                   </span>
                 </p>
                 <p className="sm:text-base font-semibold">
-                  Order Total:{" "}
+                  Total:{" "}
                   <span className="font-normal text-gray-600">
                     {currency}
                     {order.amount}
@@ -77,11 +77,11 @@ const Orders = () => {
                     {order.status}
                   </span>
                 </p>
-                <Link to={`/details/${order.confirmationCode}`}>
+                {/*<Link to={`/details/${order.confirmationCode}`}>*/}
                   <button className="border border-gray-300 text-gray-700 hover:bg-black hover:text-white sm:px-6 px-4 py-2 text-sm font-semibold rounded-md">
                     View Order
                   </button>
-                </Link>
+                {/*</Link>*/}
               </div>
             </div>
           ))}

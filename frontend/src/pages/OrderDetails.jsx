@@ -16,9 +16,11 @@ const OrderDetails = () => {
         { confirmationCode },
         { headers: { token } }
       );
+      console.log("Response success", response.data.order);
       if (response.data.success) {
         setOrderData(response.data.order);
       }
+      console.log("Order data:", orderData);
     } catch (error) {
       console.log("Error fetching order data:", error);
     }
@@ -26,7 +28,7 @@ const OrderDetails = () => {
 
   useEffect(() => {
     loadOrderData();
-  }, [token]);
+  }, [token, confirmationCode]);
 
   return (
     <div className="px-2 sm:px-8">
@@ -37,7 +39,7 @@ const OrderDetails = () => {
         {/* Order information */}
         <div className="w-full">
           <p className="text-xl font-bold mb-3">
-            Order #<span> {confirmationCode}</span>
+            Order #<span> {orderData.confirmationCode}</span>
           </p>
           <div className="flex flex-col sm:flex-row justify-between gap-2 mx-10 font-semibold text-md">
             <div className="flex flex-col gap-2">
@@ -72,34 +74,30 @@ const OrderDetails = () => {
           </div>
         </div>
         {/* Order items */}
-        {orderData ? (
-          <div className="w-full">
-            {orderData.items.map((item, index) => (
-              <div
-                key={index}
-                className="border-t flex flex-col sm:flex-row justify-between px-8 py-4 gap-1 sm:gap-10"
-              >
-                {/* Image and Description */}
-                <div className="flex flex-col sm:flex-row gap-1 sm:gap-6">
-                  <img
-                    src={item.image[0]}
-                    alt={item.name}
-                    className="w-16 h-16 object-cover rounded"
-                  />
-                  <p className="w-3/4">{item.name}</p>
-                </div>
-
-                {/* Size and Quantity */}
-                <div className="flex flex-col sm:flex-row gap-1 sm:gap-6">
-                  <p>Size: {item.size}</p>
-                  <p>Quantity: {item.quantity}</p>
-                </div>
+        <div className="w-full">
+          {orderData.items.map((item, index) => (
+            <div
+              key={index}
+              className="border-t flex flex-col sm:flex-row justify-between px-8 py-4 gap-1 sm:gap-10"
+            >
+              {/* Image and Description */}
+              <div className="flex flex-col sm:flex-row gap-1 sm:gap-6">
+                <img
+                  src={item.image[0]}
+                  alt={item.name}
+                  className="w-16 h-16 object-cover rounded"
+                />
+                <p className="w-3/4">{item.name}</p>
               </div>
-            ))}
-          </div>
-        ) : (
-          ""
-        )}
+
+              {/* Size and Quantity */}
+              <div className="flex flex-col sm:flex-row gap-1 sm:gap-6">
+                <p>Size: {item.size}</p>
+                <p>Quantity: {item.quantity}</p>
+              </div>
+            </div>
+          ))}
+        </div>
 
         <Link to={"/orders"}>
           <p className="text-blue-500">Back to orders</p>

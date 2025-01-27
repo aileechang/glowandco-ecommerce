@@ -127,6 +127,7 @@ const userOrders = async (req, res) => {
   }
 };
 
+/*
 // Order details for user
 const getDetails = async (req, res) => {
   try {
@@ -148,6 +149,7 @@ const getDetails = async (req, res) => {
     res.json({ success: false, message: error.message })
   }
 }
+*/
 
 // Update order status for admin
 const updateStatus = async (req, res) => {
@@ -167,6 +169,6 @@ export {
   verifyStripe,
   allOrders,
   userOrders,
-  getDetails,
+  //getDetails,
   updateStatus,
 };
