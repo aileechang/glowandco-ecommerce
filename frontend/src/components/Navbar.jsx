@@ -26,35 +26,35 @@ const Navbar = () => {
   return (
     <div className="flex items-center justify-between py-5 font-medium">
       <Link to='/'>
-        <img src={assets.logo} className="w-36" alt="logo" />
+        <img src={assets.logo} className="sm:w-[230px] w-[200px] h-auto" alt="logo" />
       </Link>
 
-      <ul className="hidden sm:flex gap-5 text-sm text-gray-700">
+      <ul className="hidden sm:flex gap-5 text-sm text-white">
         <NavLink to="/" className="flex flex-col items-center gap-1">
           <p>HOME</p>
-          <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
+          <hr className="w-2/4 border-none h-[1.5px] bg-black hidden" />
         </NavLink>
         <NavLink to="/collection" className="flex flex-col items-center gap-1">
           <p>COLLECTION</p>
-          <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
+          <hr className="w-2/4 border-none h-[1.5px] bg-black hidden" />
         </NavLink>
         <NavLink to="/about" className="flex flex-col items-center gap-1">
           <p>ABOUT</p>
-          <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
+          <hr className="w-2/4 border-none h-[1.5px] bg-black hidden" />
         </NavLink>
         <NavLink to="/contact" className="flex flex-col items-center gap-1">
           <p>CONTACT</p>
-          <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
+          <hr className="w-2/4 border-none h-[1.5px] bg-black hidden" />
         </NavLink>
       </ul>
 
-      <div className="flex items-center gap-6">
+      <div className="flex items-center gap-5">
         {isCollectionPage && (
-          <RiSearchLine onClick={()=>setShowSearch(true)} className="w-5 h-5 cursor-pointer" />
+          <RiSearchLine onClick={()=>setShowSearch(true)} className="w-5 h-5 cursor-pointer text-black" />
         )}
 
         <div className="group relative">
-          <RiUser3Line onClick={()=>token ? null : navigate('/login')} className="w-5 h-5 cursor-pointer" />
+          <RiUser3Line onClick={()=>token ? null : navigate('/login')} className="w-5 h-5 cursor-pointer text-black" />
           {/* Dropdown Menu */}
           {token &&
           <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4">
@@ -66,8 +66,8 @@ const Navbar = () => {
           </div>}
         </div>
         <Link to="/cart" className="relative">
-          <RiShoppingCartLine className="w-5 h-5 min-w-5" />
-          <p className="absolute right-[-6px] bottom-[-6px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]">
+          <RiShoppingCartLine className="w-5 h-5 min-w-5 text-black" />
+          <p className="absolute right-[-6px] bottom-[-6px] w-4 text-center leading-4 bg-white text-black aspect-square rounded-full text-[8px]">
             {getCartCount()}
           </p>
         </Link>

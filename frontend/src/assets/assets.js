@@ -48,7 +48,7 @@ import womens_shoes0103 from './womens_shoes0103.png';
 import logo from './logo.png';
 import stripe from './stripe.png';
 import paypal from './paypal.png';
-import hero from './hero.jpg';
+import hero from './hero.png';
 import aboutus from './aboutus.jpg';
 import contactus from './contactus.jpg';
 import modelpose from './modelpose.jpg';
@@ -60,7 +60,7 @@ export const assets = {
     logo,
     stripe,
     paypal,
-    hero,
+    hero: hero,
     aboutus,
     contactus,
     modelpose,
