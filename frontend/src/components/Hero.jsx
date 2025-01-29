@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     <div
       className={
-        `relative w-full h-[88vh] md:bg-cover md:bg-center bg-right md:bg-no-repeat flex items-center justify-center md:justify-start`
+        `relative w-full h-[88vh] md:bg-cover md:bg-center bg-right md:bg-no-repeat flex items-center justify-center md:justify-start rounded-xl`
       }
       style={{ backgroundImage: `url(${assets.hero})` }}
     >
@@ -26,7 +26,7 @@ const Hero = () => {
             </p>
             <hr className="border-2 border-slate-600 w-[50px] md:w-[70px]" />
           </div>
-          <button className="bg-[#727D71] text-white font-bold rounded-full  mt-16 px-8 py-3 hover:text-[#727D71] hover:bg-white">
+          <button className="bg-[#727D71] text-white font-bold rounded-full  mt-16 px-8 py-3 hover:bg-[#6D4C3D]">
             SHOP NOW
           </button>
         </div>
