@@ -24,27 +24,27 @@ const Navbar = () => {
   }
 
   return (
-    <div className="flex items-center justify-between py-5 font-medium">
+    <div className="flex items-center justify-between py-4 font-medium px-3 sm:px-[2vw] md:px-[3vw] lg:px-[5vw]">
       <Link to='/'>
-        <img src={assets.logo} className="sm:w-[230px] w-[200px] h-auto" alt="logo" />
+        <img src={assets.logo} className="sm:w-[220px] w-[190px] h-auto" alt="logo" />
       </Link>
 
-      <ul className="hidden sm:flex gap-5 text-sm text-white">
+      <ul className="hidden sm:flex gap-5 text-sm  text-[#6D4C3D] p-4">
         <NavLink to="/" className="flex flex-col items-center gap-1">
           <p>HOME</p>
-          <hr className="w-2/4 border-none h-[1.5px] bg-black hidden" />
+          <hr className="w-2/4 border-none h-[1.5px] bg-white hidden" />
         </NavLink>
         <NavLink to="/collection" className="flex flex-col items-center gap-1">
           <p>COLLECTION</p>
-          <hr className="w-2/4 border-none h-[1.5px] bg-black hidden" />
+          <hr className="w-2/4 border-none h-[1.5px] bg-white hidden" />
         </NavLink>
         <NavLink to="/about" className="flex flex-col items-center gap-1">
           <p>ABOUT</p>
-          <hr className="w-2/4 border-none h-[1.5px] bg-black hidden" />
+          <hr className="w-2/4 border-none h-[1.5px] bg-white hidden" />
         </NavLink>
         <NavLink to="/contact" className="flex flex-col items-center gap-1">
           <p>CONTACT</p>
-          <hr className="w-2/4 border-none h-[1.5px] bg-black hidden" />
+          <hr className="w-2/4 border-none h-[1.5px] bg-white hidden" />
         </NavLink>
       </ul>
 
@@ -58,10 +58,10 @@ const Navbar = () => {
           {/* Dropdown Menu */}
           {token &&
           <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4">
-            <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded">
-              <p className="cursor-pointer hover:text-black">Profile</p>
-              <p onClick={()=> navigate('/orders')} className="cursor-pointer hover:text-black">Orders</p>
-              <p onClick={logout} className="cursor-pointer hover:text-black">Logout</p>
+            <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-white text-[#6d4c3d] rounded">
+              <p className="cursor-pointer hover:text-black bg-white">Profile</p>
+              <p onClick={()=> navigate('/orders')} className="cursor-pointer bg-white hover:text-black">Orders</p>
+              <p onClick={logout} className="cursor-pointer bg-white hover:text-black">Logout</p>
             </div>
           </div>}
         </div>

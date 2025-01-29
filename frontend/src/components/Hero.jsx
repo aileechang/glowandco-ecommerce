@@ -5,29 +5,22 @@ const Hero = () => {
   return (
     <div
       className={
-        "relative w-full h-[80vh] md:bg-cover md:bg-center md:bg-no-repeat flex flex-row items-center px-6"
+        "relative w-full h-[88vh] md:bg-cover md:bg-center bg-right md:bg-no-repeat flex items-center justify-left"
       }
       style={{ backgroundImage: `url(${assets.hero})` }}
     >
-      <div className="bg-white md:w-[75%] w-full h-[75%] mx-5">
-        <div className="flex flex-col h-full justify-center border-4 border-white sm:p-20 md:p-15">
-          <div className="flex flex-row gap-3 items-center">
-            <hr className="border-b border-white w-[15%]" />
-            <p className="font-medium text-[#4b483d] tracking-widest">LATEST STYLES</p>
-          </div>
-          <p className="cormorant-garamond-bold-italic text-6xl text-white">
-            NEW <br /> ARRIVALS
-          </p>
-          <div className="flex flex-row gap-3 items-center">
-            <p className="font-medium text-[#4b483d] tracking-widest">COLLECTION OUT NOW</p>
-            <hr className="border-b border-white w-[25%]" />
-          </div>
-          <button className="bg-[#162512] text-white font-semibold w-[40%] rounded-3xl mt-5 px-4 py-2 hover:bg-white hover:text-black">
-            SHOP HERE
-          </button>
+        <div className="w-full md:w-[450px] h-[300px] md:h-[500px] p-20">
+            <div className="flex flex-row gap-3 items-center ml-8">
+            <hr className="border-1 border-black w-[30px]"/>
+            <p className="cormorant-garamond-medium-italic text-5xl bg-none">NEW</p>
+            </div>
+            <p className="cormorant-garamond-bold text-6xl ml-20">ARRIVALS</p>
+            <div className="flex flex-row gap-3 items-center mt-10">
+            <p className="font-medium text-l tracking-wide">COLLECTION OUT NOW</p>
+            <hr className="border-1 border-black w-[70px]"/>
+            </div>
+            <button className="bg-black text-white mt-14 ml-20 px-8 py-3 hover:text-black hover:bg-white">SHOP HERE</button>
         </div>
-      </div>
-      <div className="hidden opacity-0 md:block w-[25%] h-[75%]"></div>
     </div>
   );
 };

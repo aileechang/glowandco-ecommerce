@@ -11,12 +11,18 @@ a.active hr {
 
 * {
     font-family: 'Open Sans';
-    background-color: #e1d7c7;
+    background-color: #DCC9B6;
 }
 
-.cormorant-garamond-bold-italic {
+.cormorant-garamond-bold {
   font-family: "Cormorant Garamond", serif;
   font-weight: 700;
+  font-style: normal;
+}
+
+.cormorant-garamond-medium-italic {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 300;
   font-style: italic;
 }
   
