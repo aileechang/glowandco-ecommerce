@@ -74,22 +74,22 @@ const Collection = () => {
   }, [sortType])
 
   return (
-    <div className='flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t'>
+    <div className='flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t border-[#6D4C3D]'>
       
       {/* Filter */}
-      <div className='min-w-60'>
+      <div className='min-w-60 h-auto border-b sm:border-b-0 sm:border-r border-[#6D4C3D]'>
         <div onClick={()=>setShowFilter(!showFilter)} className='flex items-center cursor-pointer gap-1'>
-          <p className='my-2 text-xl flex items-center'>
-            <RiFilter2Line className='w-5 h-5'/>
+          <p className='my-2 text-xl flex items-center text-slate-800'>
+            <RiFilter2Line className='w-5 h-5 text-slate-800'/>
             FILTER
           </p>
-          <RiArrowDropRightLine className={`w-5 h-5 text-gray-500 sm:hidden ${showFilter ? 'rotate-90' : ''}`}/>
+          <RiArrowDropRightLine className={`w-5 h-5 text-slate-600 sm:hidden ${showFilter ? 'rotate-90' : ''}`}/>
         </div>
         
         {/* Categories */}
-        <div className={`border border-gray-300 pl-5 py-3 my-5 ${showFilter ? '' : 'hidden'} sm:block`}>
-          <p className='mb-3 text-sm font-medium'>CATEGORIES</p>
-          <div className='flex flex-col gap-2 text-sm font-light text-gray-700'>
+        <div className={`border-b border-slate-300 pl-5 py-3 my-1 ${showFilter ? '' : 'hidden'} sm:block`}>
+          <p className='mb-3 text-sm font-medium text-slate-800'>CATEGORIES</p>
+          <div className='flex flex-col gap-2 text-sm font-light text-slate-800'>
             <p className='flex gap-2'>
               <input className='w-3' type="checkbox" value={'Mens'} onChange={toggleCategory} /> Mens
             </p>
@@ -106,9 +106,9 @@ const Collection = () => {
         </div>
 
         {/* Sub Categories */}
-        <div className={`border border-gray-300 pl-5 py-3 mt-6 ${showFilter ? '' : 'hidden'} sm:block`}>
-          <p className='mb-3 text-sm font-medium'>TYPE</p>
-          <div className='flex flex-col gap-2 text-sm font-light text-gray-700'>
+        <div className={`pl-5 py-3 mt-2 ${showFilter ? '' : 'hidden'} sm:block`}>
+          <p className='mb-3 text-sm font-medium text-slate-800'>TYPE</p>
+          <div className='flex flex-col gap-2 text-sm font-light text-slate-800'>
             <p className='flex gap-2'>
               <input className='w-3' type="checkbox" value={'Apparel'} onChange={toggleSubCategory} /> Apparel
             </p>
@@ -131,13 +131,13 @@ const Collection = () => {
       {/* Right Side */}
       <div className='flex-1'>
 
-        <div className='flex justify-between text-base sm:text-2xl mb-4'>
+        <div className='flex justify-between text-2xl sm:text-3xl mb-4'>
           <Title text1={'ALL'} text2={'COLLECTIONS'} />
 
           {/* Sort Products */}
           <div className='flex gap-1 items-center text-sm mx-2'>
-            <p>Sort by:</p>
-            <select onChange={(e)=>setSortType(e.target.value)} className='border-2 border-gray-300'>
+            <p className='font-medium'>Sort by:</p>
+            <select onChange={(e)=>setSortType(e.target.value)} className='border border-slate-600'>
               <option value="relavent">Relavent</option>
               <option value="low-high">Low to High</option>
               <option value="high-low">High to Low</option>
