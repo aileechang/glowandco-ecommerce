@@ -11,7 +11,7 @@ const NewsLetterBox = () => {
         <p className='text-slate-600 mt-3'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam saepe, blanditiis consequatur dolore.</p>
         <form onSubmit={handleSubmit} className='w-full sm:w-1/2 flex items-center gap-3 mx-auto my-6 border border-[#727D71] rounded pl-3'>
             <input className='w-full sm:flex-1 outline-none bg-inherit' type="email" placeholder='Enter your email' required />
-            <button type='submit' className='bg-[#727D71] text-white hover:bg-[#6D4C3D] text-xs font-bold  tracking-wide px-10 py-4'>SUBSCRIBE</button>
+            <button type='submit' className='bg-[#727D71] text-white hover:bg-slate-800 text-xs font-bold  tracking-wide px-10 py-4'>SUBSCRIBE</button>
         </form>
     </div>
   )

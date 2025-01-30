@@ -138,13 +138,23 @@ const Navbar = () => {
           />
         )}
 
+        {token && (
+            <p
+          onClick={logout}
+          className="cursor-pointer text-slate-600 transition-all duration-300"
+        >
+          Logout
+        </p>
+        )}
+
         {/* User Icon */}
         <div className="relative group">
           <RiUser3Line
-            onClick={() => (token ? null : navigate("/login"))}
+            onClick={() => (token ? navigate("/account") : navigate("/login"))}
             className="sm:w-7 w-6 sm:h-7 h-6 cursor-pointer text-[#6D4C3D]"
           />
           {/* Dropdown Menu */}
+          {/*
           {token && (
             <div className="absolute right-0 pt-1 hidden group-hover:block z-50">
               <div className="flex flex-col w-36 border-2 border-[#6D4C3D] bg-[#F0EFEB] text-[#6D4C3D] rounded-sm shadow-lg">
@@ -165,7 +175,7 @@ const Navbar = () => {
                 </p>
               </div>
             </div>
-          )}
+          )}*/}
         </div>
 
         {/* Cart Icon */}

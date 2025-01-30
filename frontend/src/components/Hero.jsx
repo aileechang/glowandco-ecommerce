@@ -26,7 +26,7 @@ const Hero = () => {
             </p>
             <hr className="border-2 border-slate-600 w-[50px] md:w-[70px]" />
           </div>
-          <button className="bg-[#727D71] text-white font-bold rounded-full  mt-16 px-8 py-3 hover:bg-[#6D4C3D]">
+          <button className="bg-[#727D71] text-white font-bold rounded-full  mt-16 px-8 py-3 hover:bg-slate-800">
             SHOP NOW
           </button>
         </div>
