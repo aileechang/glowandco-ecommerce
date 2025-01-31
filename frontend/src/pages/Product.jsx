@@ -26,7 +26,7 @@ const Product = () => {
   }, [productId, products]);
 
   return productData ? (
-    <div className='border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100'>
+    <div className='border-t border-[#6D4C3D] pt-10 transition-opacity ease-in duration-500 opacity-100'>
       {/* --- Product Data --- */}
       <div className='flex gap-12 sm:gap-12 flex-col sm:flex-row'>
         
@@ -46,7 +46,7 @@ const Product = () => {
 
         {/* ---Product Information --- */}
         <div className='flex-1'>
-            <h1 className='font-medium text-2xl mt-2'>{productData.name}</h1>
+            <h1 className='font-medium text-2xl mt-2 text-slate-800'>{productData.name}</h1>
             <div className='flex items-center gap-1 mt-2'>
               <RiStarFill className="w-3.5 h-3.5 text-yellow-500" />
               <RiStarFill className="w-3.5 h-3.5 text-yellow-500" />
@@ -55,7 +55,7 @@ const Product = () => {
               <RiStarLine className="w-3.5 h-3.5 text-yellow-500" />
               <p className='pl-2'>(89)</p>
             </div>
-            <p className='mt-5 text-xl font-medium'>{currency}{productData.price}</p>
+            <p className='mt-5 text-xl font-medium text-slate-800'>{currency}{productData.price}</p>
             <p className='mt-5 text-gray-500 md: w-4/5'>{productData.description}</p>
             {(productData.category !== 'Beauty' && productData.subCategory !== 'Accessories') && (
               <div className="flex flex-col gap-4 my-8">
@@ -64,7 +64,7 @@ const Product = () => {
                   {productData.sizes.map((item, index) => (
                     <button
                       onClick={()=>setSize(item)}
-                      className={`border py-2 px-4 bg-gray-100 ${item === size ? 'border-blue-400 border-2' : ''}`}
+                      className={`border py-2 px-4 bg-gray-100 ${item === size ? 'border-[#6D4C3D] border-2' : ''}`}
                       key={index}
                     >
                       {item}
@@ -73,9 +73,9 @@ const Product = () => {
                 </div>
               </div>
             )}
-            <button onClick={()=>addToCart(productData.id, size, productData.category, productData.subCategory)} className='bg-black text-white px-8 py-3 text-sm active:bg-gray-700'>ADD TO CART</button>
-            <hr className='mt-8 sm:w-4/5' />
-            <div className='text-sm text-gray-500 mt-5 flex flex-col gap-1'>
+            <button onClick={()=>addToCart(productData.id, size, productData.category, productData.subCategory)} className='bg-[#727D71] text-white mt-4 px-8 py-3 text-sm active:bg-slate-800'>ADD TO CART</button>
+            <hr className='mt-8 sm:w-4/5 border-[#6D4C3D]' />
+            <div className='text-sm text-slate-600 mt-5 flex flex-col gap-1'>
               <p>100% Original Product</p>
               <p>Free shipping available on qualified orders of $25+</p>
               <p>Easy 30 days return and exchange on items</p>
@@ -86,10 +86,10 @@ const Product = () => {
       {/* --- Description and Reviews --- */}   
       <div className='mt-20'>
         <div className='flex'>
-          <b className='border px-5 py-3 text-sm'>Description</b>
-          <p className='border px-5 py-3 text-sm'>Reviews (14)</p>
+          <b className='border border-[#6D4C3D] px-5 py-3 text-sm cursor-pointer'>Description</b>
+          <p className='border border-[#6D4C3D] px-5 py-3 text-sm cursor-pointer'>Reviews (14)</p>
         </div>
-        <div className='flex flex-col gap-4 border px-6 py-6 text-sm text-gray-500'>
+        <div className='flex flex-col gap-4 border border-[#6D4C3D] px-6 py-6 text-sm text-slate-600'>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam illo nam, exercitationem ab facere officiis quis quisquam totam perspiciatis error minus iusto iste, quidem consectetur, quas adipisci cupiditate quaerat dolorum.</p>
             <p>Lorem ipsum dolor sit eaque laborum vitae iste commodi fugit illo temporibus nihil quis sapiente culpa placeat, optio eum et corporis voluptatibus consectetur, reprehenderit obcaecati? Perspiciatis!</p>
         </div>

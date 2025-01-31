@@ -145,7 +145,7 @@ const Navbar = () => {
                 <li className="flex flex-row items-center">
                   <button
                     onClick={handleAccountClick}
-                    className="w-full px-4 py-2 hover:bg-[#6D4C3D] hover:text-[#F0EFEB] text-left"
+                    className="w-full px-4 py-2 transition-all duration-300 hover:bg-[#6D4C3D] hover:text-[#F0EFEB] text-left"
                   >
                     My Account
                   </button>
@@ -154,7 +154,7 @@ const Navbar = () => {
                 <li className="flex flex-row items-center">
                   <button
                     onClick={logout}
-                    className="w-full flex items-center gap-x-3 px-4 py-2 hover:bg-[#6D4C3D] hover:text-[#F0EFEB] text-left"
+                    className="w-full flex items-center gap-x-3 px-4 py-2 transition-all duration-300 hover:bg-[#6D4C3D] hover:text-[#F0EFEB] text-left"
                   >
                     <span>Logout</span>
                     <RiLogoutBoxRLine className="w-5 h-5" />
@@ -165,7 +165,7 @@ const Navbar = () => {
               <li>
                 <button
                   onClick={handleAccountClick}
-                  className="w-full flex items-center gap-x-3 px-4 py-2 hover:bg-[#6D4C3D] hover:text-[#F0EFEB] text-left"
+                  className="w-full flex items-center gap-x-3 px-4 py-2 transition-all duration-300 hover:bg-[#6D4C3D] hover:text-[#F0EFEB] text-left"
                 >
                   <span>Login</span>
                   <RiLoginBoxLine className="w-5 h-5" />

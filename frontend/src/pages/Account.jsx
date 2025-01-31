@@ -46,7 +46,7 @@ const Account = () => {
   };
 
   return (
-    <div className="flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t border-[#6D4C3D] min-h-screen">
+    <div className="flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t border-[#6D4C3D]">
       {/* Left side */}
       <div className="min-w-60 h-auto border-b sm:border-b-0 sm:border-r border-[#6D4C3D]">
         {/* Mobile Menu (Dropdown) */}
