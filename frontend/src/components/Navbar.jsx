@@ -1,17 +1,24 @@
 import React, { useContext, useState } from "react";
 import { assets } from "../assets/assets";
-import { NavLink, Link, useLocation } from "react-router-dom";
+import { NavLink, Link, useLocation, useNavigate } from "react-router-dom";
 import {
   RiSearchLine,
   RiUser3Line,
   RiShoppingCartLine,
   RiMenuFill,
   RiCloseLargeFill,
+  RiLoginBoxLine,
+  RiLogoutBoxRLine,
 } from "react-icons/ri";
+import {
+  SlSocialFacebook,
+  SlSocialInstagram,
+  SlSocialPintarest,
+} from "react-icons/sl";
+import { IoShareSocialOutline } from "react-icons/io5";
 import { ShopContext } from "../context/ShopContext";
 
 const Navbar = () => {
-  const [visible, setVisible] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const {
     setShowSearch,
@@ -25,7 +32,17 @@ const Navbar = () => {
   const location = useLocation();
   const isCollectionPage = location.pathname === "/collection";
 
+  const handleAccountClick = () => {
+    setIsOpen(false);
+    if (token) {
+      navigate("/account");
+    } else {
+      navigate("/login");
+    }
+  };
+
   const logout = () => {
+    setIsOpen(false);
     navigate("/login");
     localStorage.removeItem("token");
     setToken("");
@@ -58,67 +75,110 @@ const Navbar = () => {
         </button>
 
         {/* Links */}
-        <ul className="flex flex-col items-left justify-start h-full text-lg font-medium text-[#6D4C3D] py-10">
-          <li className="pt-6 flex flex-row items-center">
-            <NavLink
-              to="/"
-              onClick={() => setIsOpen(false)}
-              className={({ isActive }) =>
-                `w-full px-4 py-2 transition-all duration-300 ${
-                  isActive
-                    ? "bg-[#6D4C3D] text-[#F0EFEB]"
-                    : "hover:bg-[#6D4C3D] hover:text-[#F0EFEB]"
-                }`
-              }
-            >
-              HOME
-            </NavLink>
-          </li>
-          <li className="flex flex-row items-center">
-            <NavLink
-              to="/collection"
-              onClick={() => setIsOpen(false)}
-              className={({ isActive }) =>
-                `w-full px-4 py-2 transition-all duration-300 ${
-                  isActive
-                    ? "bg-[#6D4C3D] text-[#F0EFEB]"
-                    : "hover:bg-[#6D4C3D] hover:text-[#F0EFEB]"
-                }`
-              }
-            >
-              COLLECTIONS
-            </NavLink>
-          </li>
-          <li className="flex flex-row items-center">
-            <NavLink
-              to="/about"
-              onClick={() => setIsOpen(false)}
-              className={({ isActive }) =>
-                `w-full px-4 py-2 transition-all duration-300 ${
-                  isActive
-                    ? "bg-[#6D4C3D] text-[#F0EFEB]"
-                    : "hover:bg-[#6D4C3D] hover:text-[#F0EFEB]"
-                }`
-              }
-            >
-              ABOUT US
-            </NavLink>
-          </li>
-          <li className="flex flex-row items-center">
-            <NavLink
-              to="/contact"
-              onClick={() => setIsOpen(false)}
-              className={({ isActive }) =>
-                `w-full px-4 py-2 transition-all duration-300 ${
-                  isActive
-                    ? "bg-[#6D4C3D] text-[#F0EFEB]"
-                    : "hover:bg-[#6D4C3D] hover:text-[#F0EFEB]"
-                }`
-              }
-            >
-              CONTACT US
-            </NavLink>
-          </li>
+        <ul className="flex flex-col items-left justify-between h-full text-lg font-medium text-[#6D4C3D] pt-10 pb-5">
+          <div>
+            <li className="pt-6 flex flex-row items-center">
+              <NavLink
+                to="/"
+                onClick={() => setIsOpen(false)}
+                className={({ isActive }) =>
+                  `w-full px-4 py-2 transition-all duration-300 ${
+                    isActive
+                      ? "bg-[#6D4C3D] text-[#F0EFEB]"
+                      : "hover:bg-[#6D4C3D] hover:text-[#F0EFEB]"
+                  }`
+                }
+              >
+                Home
+              </NavLink>
+            </li>
+            <li className="flex flex-row items-center">
+              <NavLink
+                to="/collection"
+                onClick={() => setIsOpen(false)}
+                className={({ isActive }) =>
+                  `w-full px-4 py-2 transition-all duration-300 ${
+                    isActive
+                      ? "bg-[#6D4C3D] text-[#F0EFEB]"
+                      : "hover:bg-[#6D4C3D] hover:text-[#F0EFEB]"
+                  }`
+                }
+              >
+                Collections
+              </NavLink>
+            </li>
+            <li className="flex flex-row items-center">
+              <NavLink
+                to="/about"
+                onClick={() => setIsOpen(false)}
+                className={({ isActive }) =>
+                  `w-full px-4 py-2 transition-all duration-300 ${
+                    isActive
+                      ? "bg-[#6D4C3D] text-[#F0EFEB]"
+                      : "hover:bg-[#6D4C3D] hover:text-[#F0EFEB]"
+                  }`
+                }
+              >
+                About
+              </NavLink>
+            </li>
+            <li className="flex flex-row items-center">
+              <NavLink
+                to="/contact"
+                onClick={() => setIsOpen(false)}
+                className={({ isActive }) =>
+                  `w-full px-4 py-2 transition-all duration-300 ${
+                    isActive
+                      ? "bg-[#6D4C3D] text-[#F0EFEB]"
+                      : "hover:bg-[#6D4C3D] hover:text-[#F0EFEB]"
+                  }`
+                }
+              >
+                Contact
+              </NavLink>
+            </li>
+          </div>
+          <div>
+            <hr className="w-full border-[#6D4C3D]" />
+            {token ? (
+              <>
+                <li className="flex flex-row items-center">
+              <button
+                onClick={handleAccountClick}
+                className="w-full px-4 py-2 hover:bg-[#6D4C3D] hover:text-[#F0EFEB] text-left"
+              >
+                My Account
+              </button>
+            </li>
+
+            <li className="flex flex-row items-center">
+              <button
+                onClick={logout}
+                className="w-full flex items-center gap-x-3 px-4 py-2 hover:bg-[#6D4C3D] hover:text-[#F0EFEB] text-left"
+              >
+                <span>Logout</span>
+                <RiLogoutBoxRLine className="w-5 h-5" />
+              </button>
+            </li>
+              </>
+            ): (
+              <li>
+                <button onClick={handleAccountClick}
+                  className="w-full flex items-center gap-x-3 px-4 py-2 hover:bg-[#6D4C3D] hover:text-[#F0EFEB] text-left">
+                    <span>Login</span>
+                    <RiLoginBoxLine className="w-5 h-5" />
+                </button>
+              </li>
+            )}
+            
+
+            <li className="mt-5 flex flex-row items-center justify-center gap-4">
+              <SlSocialFacebook className="w-5 h-5 cursor-pointer" />
+              <SlSocialInstagram className="w-5 h-5 cursor-pointer" />
+              <SlSocialPintarest className="w-5 h-5 cursor-pointer" />
+              <IoShareSocialOutline className="w-5 h-5 cursor-pointer" />
+            </li>
+          </div>
         </ul>
       </div>
 
@@ -138,44 +198,12 @@ const Navbar = () => {
           />
         )}
 
-        {token && (
-            <p
-          onClick={logout}
-          className="cursor-pointer text-slate-600 transition-all duration-300"
-        >
-          Logout
-        </p>
-        )}
-
         {/* User Icon */}
         <div className="relative group">
           <RiUser3Line
             onClick={() => (token ? navigate("/account") : navigate("/login"))}
             className="sm:w-7 w-6 sm:h-7 h-6 cursor-pointer text-[#6D4C3D]"
           />
-          {/* Dropdown Menu */}
-          {/*
-          {token && (
-            <div className="absolute right-0 pt-1 hidden group-hover:block z-50">
-              <div className="flex flex-col w-36 border-2 border-[#6D4C3D] bg-[#F0EFEB] text-[#6D4C3D] rounded-sm shadow-lg">
-                <p className="cursor-pointer py-3 px-2 hover:bg-[#6D4C3D] hover:text-[#F0EFEB] transition-all duration-300">
-                  Profile
-                </p>
-                <p
-                  onClick={() => navigate("/orders")}
-                  className="cursor-pointer py-3 px-2 hover:bg-[#6D4C3D] hover:text-[#F0EFEB] transition-all duration-300"
-                >
-                  Orders
-                </p>
-                <p
-                  onClick={logout}
-                  className="cursor-pointer py-3 px-2 hover:bg-[#6D4C3D] hover:text-[#F0EFEB] transition-all duration-300"
-                >
-                  Logout
-                </p>
-              </div>
-            </div>
-          )}*/}
         </div>
 
         {/* Cart Icon */}
