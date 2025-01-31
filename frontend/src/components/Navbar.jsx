@@ -143,34 +143,35 @@ const Navbar = () => {
             {token ? (
               <>
                 <li className="flex flex-row items-center">
-              <button
-                onClick={handleAccountClick}
-                className="w-full px-4 py-2 hover:bg-[#6D4C3D] hover:text-[#F0EFEB] text-left"
-              >
-                My Account
-              </button>
-            </li>
+                  <button
+                    onClick={handleAccountClick}
+                    className="w-full px-4 py-2 hover:bg-[#6D4C3D] hover:text-[#F0EFEB] text-left"
+                  >
+                    My Account
+                  </button>
+                </li>
 
-            <li className="flex flex-row items-center">
-              <button
-                onClick={logout}
-                className="w-full flex items-center gap-x-3 px-4 py-2 hover:bg-[#6D4C3D] hover:text-[#F0EFEB] text-left"
-              >
-                <span>Logout</span>
-                <RiLogoutBoxRLine className="w-5 h-5" />
-              </button>
-            </li>
+                <li className="flex flex-row items-center">
+                  <button
+                    onClick={logout}
+                    className="w-full flex items-center gap-x-3 px-4 py-2 hover:bg-[#6D4C3D] hover:text-[#F0EFEB] text-left"
+                  >
+                    <span>Logout</span>
+                    <RiLogoutBoxRLine className="w-5 h-5" />
+                  </button>
+                </li>
               </>
-            ): (
+            ) : (
               <li>
-                <button onClick={handleAccountClick}
-                  className="w-full flex items-center gap-x-3 px-4 py-2 hover:bg-[#6D4C3D] hover:text-[#F0EFEB] text-left">
-                    <span>Login</span>
-                    <RiLoginBoxLine className="w-5 h-5" />
+                <button
+                  onClick={handleAccountClick}
+                  className="w-full flex items-center gap-x-3 px-4 py-2 hover:bg-[#6D4C3D] hover:text-[#F0EFEB] text-left"
+                >
+                  <span>Login</span>
+                  <RiLoginBoxLine className="w-5 h-5" />
                 </button>
               </li>
             )}
-            
 
             <li className="mt-5 flex flex-row items-center justify-center gap-4">
               <SlSocialFacebook className="w-5 h-5 cursor-pointer" />
