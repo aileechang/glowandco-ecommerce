@@ -185,6 +185,7 @@ const Navbar = () => {
 
       <Link to="/">
         <img
+        onClick={()=> setIsOpen(false)}
           src={assets.logo}
           className="sm:w-[210px] w-[180px] h-auto"
           alt="logo"
@@ -202,14 +203,14 @@ const Navbar = () => {
         {/* User Icon */}
         <div className="relative group">
           <RiUser3Line
-            onClick={() => (token ? navigate("/account") : navigate("/login"))}
+            onClick={handleAccountClick}
             className="sm:w-7 w-6 sm:h-7 h-6 cursor-pointer text-[#6D4C3D]"
           />
         </div>
 
         {/* Cart Icon */}
         <Link to="/cart" className="relative">
-          <RiShoppingCartLine className="sm:w-7 w-6 sm:h-7 h-6 text-[#6D4C3D]" />
+          <RiShoppingCartLine onClick={()=> setIsOpen(false)} className="sm:w-7 w-6 sm:h-7 h-6 text-[#6D4C3D]" />
           <p className="absolute right-[-6px] bottom-[-6px] w-4 text-center leading-4 bg-slate-800 text-white aspect-square rounded-full text-[8px]">
             {getCartCount()}
           </p>

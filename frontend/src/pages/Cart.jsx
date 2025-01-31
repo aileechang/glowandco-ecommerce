@@ -34,12 +34,12 @@ const Cart = () => {
   }, [cartItems, products, cartData]);
 
   return (
-    <div className="border-t pt-14">
-      <div className="text-2xl mb-3">
+    <div className="border-t border-[#6D4C3D] pt-14">
+      <div className="text-3xl mb-3">
         <Title text1={"YOUR"} text2={"CART"} />
       </div>
 
-      <div>
+      <div className="px-5 sm:px-10">
         {cartData.map((item, index) => {
           const productData = products.find(
             (product) => String(product.id) === item.id
@@ -47,7 +47,7 @@ const Cart = () => {
 
           return (
             <div
-              className="py-4 border-t border-b text-gray-700 grid grid-cols[4fr_0.5fr_0.5fr] sm:grid-cols-[4fr_2fr_0.5fr] items-center gap-4"
+              className="py-4 border-t border-[#6D4C3D] text-slate-800 grid grid-cols[4fr_0.5fr_0.5fr] sm:grid-cols-[4fr_2fr_0.5fr] items-center gap-4"
               key={index}
             >
               <div className="flex items-start gap-6">
@@ -87,7 +87,7 @@ const Cart = () => {
               />
               <RiDeleteBin2Line
                 onClick={() => updateQuantity(item.id, item.size, 0)}
-                className="w-5 h-5 mr-4 sm:w-5 cursor-pointer"
+                className="w-5 h-5 mr-4 sm:w-5 text-slate-600 cursor-pointer"
               />
             </div>
           );
@@ -95,12 +95,12 @@ const Cart = () => {
       </div>
 
       <div className="flex justify-end my-20">
-        <div className="w-full sm:w-[450px]">
+        <div className="w-full sm:w-[450px] bg-white rounded-md border-2 border-[#6D4C3D] px-4 py-6">
           <CartTotal />
           <div className="w-full text-end">
             <button
               onClick={() => navigate("/place-order")}
-              className="bg-black text-white text-sm my-8 px-8 py-3"
+              className="bg-[#727D71] text-[#F0EFEB] hover:bg-slate-800 text-sm my-8 px-8 py-3"
             >
               CHECKOUT
             </button>
