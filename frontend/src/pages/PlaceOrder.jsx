@@ -191,7 +191,7 @@ const PlaceOrder = () => {
 
       {/* --- Right Side --- */}
       <div className="mt-8">
-        <div className="mt-8 min-w-80">
+        <div className="mt-8 min-w-80 bg-white shadow-md px-4 py-6">
           <CartTotal />
         </div>
 
@@ -200,11 +200,11 @@ const PlaceOrder = () => {
           <div className="flex gap-3 flex-col lg:flex-row">
             <div
               onClick={() => setMethod("stripe")}
-              className="flex items-center gap-3 border p-2 px-3 cursor-pointer"
+              className="flex items-center gap-3 border border-[#727D71] bg-white w-full p-2 px-3 cursor-pointer"
             >
               <p
-                className={`min-w-3.5 h-3.5 border rounded-full ${
-                  method === "stripe" ? "bg-blue-400" : ""
+                className={`min-w-3.5 h-3.5 border border-[#727D71] rounded-full ${
+                  method === "stripe" ? "bg-slate-600" : ""
                 }`}
               ></p>
               <img src={assets.stripe} className="h-7 mx-4" />
@@ -214,7 +214,7 @@ const PlaceOrder = () => {
           <div className="w-full text-end mt-8">
             <button
               type="submit"
-              className="bg-black text-white px-16 py-3 text-sm"
+              className="bg-[#727D71] hover:bg-slate-800 text-white px-16 py-3 text-sm"
             >
               PLACE ORDER
             </button>
