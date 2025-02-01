@@ -13,15 +13,15 @@ const Hero = () => {
         <div className="w-full md:w-[5800px] flex flex-col items-center">
           <div className="flex flex-row gap-3 items-center">
             <hr className="border-1 border-black w-[30px]" />
-            <p className="the-seasons italic text-slate-800 text-4xl bg-none">
+            <p className="the-seasons italic text-slate-800 text-3xl md:text-4xl bg-none">
               NEW
             </p>
           </div>
-          <p className="the-seasons italic text-[#727D71] text-6xl">
+          <p className="the-seasons italic text-[#727D71] text-5xl md:text-6xl">
             ARRIVALS
           </p>
           <div className="flex flex-row gap-3 items-center mt-1">
-            <p className="font-semibold text-md md:text-sm text-slate-600 tracking-widest">
+            <p className="font-semibold text-sm md:text-base text-slate-600 tracking-widest">
               LATEST COLLECTION HERE
             </p>
             <hr className="border-2 border-slate-600 w-[50px] md:w-[70px]" />
