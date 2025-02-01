@@ -3,7 +3,7 @@ import { ShopContext } from "../context/ShopContext";
 import Title from "../components/Title";
 import { RiArrowDropRightLine } from "react-icons/ri";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Account = () => {
   const { token, backendUrl, currency, navigate } = useContext(ShopContext);
@@ -167,9 +167,9 @@ const Account = () => {
                       </p>
                     </div>
                     <div>
-                      <button className="w-[100px] bg-[#727D71] text-white text-sm sm:text-base font-bold rounded mt-4 lg:mt-0 px-8 py-2 hover:bg-slate-800 flex items-center justify-center">
+                      <Link to={`/orders/${order.confirmationCode}`} className="w-[100px] bg-[#727D71] text-white text-sm sm:text-base font-bold rounded mt-4 lg:mt-0 px-8 py-2 hover:bg-slate-800 flex items-center justify-center">
                         Details
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 ))

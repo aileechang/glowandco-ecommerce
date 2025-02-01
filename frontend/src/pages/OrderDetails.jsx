@@ -1,108 +1,83 @@
-import React, { useState, useEffect, useContext } from "react";
-import Title from "../components/Title";
-import { Link, useParams } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { useParams, Link } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
 import axios from "axios";
+import Title from "../components/Title";
 
 const OrderDetails = () => {
-  const { backendUrl, token, currency } = useContext(ShopContext);
-  const [orderData, setOrderData] = useState({});
+  const { currency, token, backendUrl } = useContext(ShopContext);
+  const [orderData, setOrderData] = useState(null);
+
   const { confirmationCode } = useParams();
 
-  const loadOrderData = async () => {
+  const fetchOrderDetails = async (confirmationCode) => {
     try {
-      const response = await axios.post(
-        `${backendUrl}/api/order/orderdetails`,
-        { confirmationCode },
-        { headers: { token } }
+      const response = await axios.get(
+        `${backendUrl}/api/order/${confirmationCode}`,
+        {
+          headers: { token },
+        }
       );
-      console.log("Response success", response.data.order);
+      console.log(response.data);
       if (response.data.success) {
         setOrderData(response.data.order);
       }
-      console.log("Order data:", orderData);
     } catch (error) {
-      console.log("Error fetching order data:", error);
+      console.error("Error fetching order details:", error);
     }
   };
 
   useEffect(() => {
-    loadOrderData();
-  }, [token, confirmationCode]);
+    if (confirmationCode && token) {
+      fetchOrderDetails(confirmationCode);
+    }
+  }, [confirmationCode, token]);
+
+  // Render nothing until orderData is populated
+  if (!orderData) {
+    return null;
+  }
 
   return (
-    <div className="px-2 sm:px-8">
-      <div className="text-2xl text-center pt-8 border-t">
-        <Title text1={"ORDER"} text2={"DETAILS"} />
-      </div>
-      <div className="flex flex-col items-center gap-6">
-        {/* Order information */}
-        <div className="w-full">
-          <p className="text-xl font-bold mb-3">
-            Order #<span> {orderData.confirmationCode}</span>
+    <div className="pt-10 border-t border-[#6D4C3D] text-lg sm:text-xl font-md">
+      <Title text1={"ORDER"} text2={"DETAILS"} />
+      <div className="bg-white p-6 rounded-md shadow-md">
+        <div className="mb-6">
+          <p className="text-base sm:text-lg">
+            Confirmation Code: <span className="font-light ml-2">{orderData.confirmationCode}</span>
           </p>
-          <div className="flex flex-col sm:flex-row justify-between gap-2 mx-10 font-semibold text-md">
-            <div className="flex flex-col gap-2">
-              <p>
-                Date:{" "}
-                <span className="font-normal ml-1">
-                  {new Date(orderData.date).toDateString()}
-                </span>
-              </p>
-              <p>
-                Payment:{" "}
-                <span className="font-normal ml-1">
-                  {orderData.paymentMethod}
-                </span>
-              </p>
-              <p>{orderData.payment ? "PAID" : "UNPAID"}</p>
-            </div>
-            <div className="flex flex-col gap-2 text-start sm:text-end">
-              <p>({orderData.items.length} Items)</p>
-              <p>
-                Total:{" "}
-                <span className="font-normal ml-1">
-                  {currency}
-                  {orderData.amount}
-                </span>
-              </p>
-              <p>
-                Status:{" "}
-                <span className="font-normal ml-1">{orderData.status}</span>
-              </p>
-            </div>
-          </div>
+          <p className="text-base sm:text-lg">
+            Date:{" "}
+            <span className="font-light ml-2">{new Date(orderData.date).toLocaleDateString()}</span>
+          </p>
+          <p className="text-base sm:text-lg">
+            Total: <span className="font-light ml-2">{currency}{orderData.amount.toFixed(2)}</span>
+          </p>
+          <p className="text-base sm:text-lg">
+            Status: <span className="font-light ml-2">{orderData.status}</span>
+          </p>
         </div>
-        {/* Order items */}
-        <div className="w-full">
-          {orderData.items.map((item, index) => (
-            <div
-              key={index}
-              className="border-t flex flex-col sm:flex-row justify-between px-8 py-4 gap-1 sm:gap-10"
-            >
-              {/* Image and Description */}
-              <div className="flex flex-col sm:flex-row gap-1 sm:gap-6">
-                <img
-                  src={item.image[0]}
-                  alt={item.name}
-                  className="w-16 h-16 object-cover rounded"
-                />
-                <p className="w-3/4">{item.name}</p>
-              </div>
 
-              {/* Size and Quantity */}
-              <div className="flex flex-col sm:flex-row gap-1 sm:gap-6">
-                <p>Size: {item.size}</p>
-                <p>Quantity: {item.quantity}</p>
-              </div>
+        <div>
+          <h2 className="text-lg sm:text-xl font-md mb-2">Items</h2>
+          {orderData.items.map((item) => (
+            <div key={item.id} className="border-b py-4">
+              <p className="text-base sm:text-lg">
+                Product: <span className="font-light ml-2">{item.name}</span>
+              </p>
+              <p className="text-base sm:text-lg">
+                Quantity: <span className="font-light ml-2">{item.quantity}</span>
+              </p>
+              <p className="text-base sm:text-lg">
+                Price: <span className="font-light ml-2">{currency}{item.price.toFixed(2)}</span>
+              </p>
             </div>
           ))}
         </div>
-
-        <Link to={"/orders"}>
-          <p className="text-blue-500">Back to orders</p>
-        </Link>
       </div>
+      <Link to="/account?section=Orders" className="px-6 py-2">
+        Back
+      </Link>{" "}
     </div>
   );
 };
