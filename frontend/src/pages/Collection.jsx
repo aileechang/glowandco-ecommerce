@@ -87,7 +87,7 @@ const Collection = () => {
         </div>
         
         {/* Categories */}
-        <div className={`border-b border-slate-300 pl-5 py-3 my-1 ${showFilter ? '' : 'hidden'} sm:block`}>
+        <div className={`bg-white sm:bg-inherit border-b border-slate-300 mx-4 pl-5 py-3 ${showFilter ? '' : 'hidden'} sm:block`}>
           <p className='mb-3 text-sm font-medium text-slate-800'>CATEGORIES</p>
           <div className='flex flex-col gap-2 text-sm font-light text-slate-800'>
             <p className='flex gap-2'>
@@ -106,7 +106,7 @@ const Collection = () => {
         </div>
 
         {/* Sub Categories */}
-        <div className={`pl-5 py-3 mt-2 ${showFilter ? '' : 'hidden'} sm:block`}>
+        <div className={`bg-white sm:bg-inherit mx-4 pl-5 py-3 ${showFilter ? '' : 'hidden'} sm:block`}>
           <p className='mb-3 text-sm font-medium text-slate-800'>TYPE</p>
           <div className='flex flex-col gap-2 text-sm font-light text-slate-800'>
             <p className='flex gap-2'>
@@ -131,7 +131,7 @@ const Collection = () => {
       {/* Right Side */}
       <div className='flex-1'>
 
-        <div className='flex justify-between text-2xl sm:text-3xl mb-4'>
+        <div className='flex justify-between text-xl sm:text-2xl mb-4'>
           <Title text1={'ALL'} text2={'COLLECTIONS'} />
 
           {/* Sort Products */}
@@ -146,7 +146,7 @@ const Collection = () => {
         </div>
 
         {/* Map Products */}
-        <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6'>
+        <div className='grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-6'>
           {filterProducts.map((item, index)=>(
             <ProductItem key={index} name={item.name} id={item.id} price={item.price} image={item.image} />
           ))}

@@ -35,7 +35,7 @@ const Cart = () => {
 
   return (
     <div className="border-t border-[#6D4C3D] pt-14">
-      <div className="text-3xl mb-3">
+      <div className="text-xl sm:text-2xl mb-3">
         <Title text1={"YOUR"} text2={"CART"} />
       </div>
 
@@ -95,7 +95,7 @@ const Cart = () => {
       </div>
 
       <div className="flex justify-end my-20">
-        <div className="w-full sm:w-[450px] bg-white rounded-md shadow-md border-2 border-[#6D4C3D] px-4 py-6">
+        <div className="w-full sm:w-[450px] bg-white shadow-md px-4 py-6">
           <CartTotal />
           <div className="w-full text-end">
             <button

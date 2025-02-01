@@ -53,7 +53,7 @@ const Account = () => {
         <div className="sm:hidden">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="w-full text-left mb-3 text-md font-medium text-slate-800 flex items-center gap-1"
+            className="w-full text-left text-md font-medium text-slate-800 flex items-center gap-1"
           >
             <span>ACCOUNT INFORMATION</span>
             <RiArrowDropRightLine
@@ -63,7 +63,7 @@ const Account = () => {
             />
           </button>
           {isMenuOpen && (
-            <div className="flex flex-col gap-2 my-3 mx-4 text-md font-light text-slate-800">
+            <div className="flex flex-col gap-2 mx-4 p-4 bg-white text-md font-light text-slate-800">
               <p
                 className="flex gap-2 cursor-pointer"
                 onClick={() => handleClick("Profile")}
@@ -117,7 +117,7 @@ const Account = () => {
       {/* Right side */}
       <div className="flex-1">
         {displayData === "Profile" && (
-          <div className="text-lg sm:text-xl font-md flex flex-col gap-2">
+          <div className="text-xl sm:text-2xl font-md flex flex-col gap-2">
             <Title text1={"MY"} text2={"PROFILE"} />
             <p className="text-base sm:text-lg">
               Name: <span className="font-light ml-2">Jane Doe</span>
@@ -129,20 +129,21 @@ const Account = () => {
             <p className="text-base sm:text-lg">
               Phone: <span className="font-light ml-2"></span>
             </p>
-            <button className="w-[100px] bg-[#727D71] text-white text-sm sm:text-base font-bold rounded mt-10 px-8 py-2 hover:bg-slate-800">
+            <button className="w-[100px] bg-[#727D71] text-white text-xs sm:text-sm font-bold rounded mt-10 px-8 py-2 hover:bg-slate-800">
               Edit
             </button>
           </div>
         )}
 
         {displayData === "Orders" && (
-          <div className="h-full text-lg sm:text-xl font-md flex flex-col">
+          <div className="h-full text-xl sm:text-2xl font-md flex flex-col">
             <Title text1={"ORDER"} text2={"HISTORY"} />
+            <hr className="border-[#6D4C3D]"/>
             {orders.length > 0
               ? orders.map((order) => (
                   <div
                     key={order.id}
-                    className="w-[70vw] sm:w-[50vw] flex flex-col lg:flex-row justify-between gap-3 py-4 px-6 sm:px-4 border-t border-[#6D4C3D] text-slate-800"
+                    className="w-[70vw] sm:w-[50vw] flex flex-col lg:flex-row justify-between items-start lg:items-center gap-3 py-4 px-6 sm:px-4 border-b border-slate-300 text-slate-800"
                   >
                     <div>
                       <p className="text-base sm:text-lg">
@@ -167,7 +168,7 @@ const Account = () => {
                       </p>
                     </div>
                     <div>
-                      <Link to={`/orders/${order.confirmationCode}`} className="w-[100px] bg-[#727D71] text-white text-sm sm:text-base font-bold rounded mt-4 lg:mt-0 px-8 py-2 hover:bg-slate-800 flex items-center justify-center">
+                      <Link to={`/orders/${order.confirmationCode}`} className="w-[100px] bg-[#727D71] text-white text-xs sm:text-sm font-bold rounded mt-4 lg:mt-0 px-8 py-2 hover:bg-slate-800 flex items-center justify-center">
                         Details
                       </Link>
                     </div>
@@ -178,7 +179,7 @@ const Account = () => {
         )}
 
         {displayData === "Payment" && (
-          <div className="text-lg sm:text-xl font-md flex flex-col gap-2">
+          <div className="text-xl sm:text-2xl font-md flex flex-col gap-2">
             <Title text1={"MANAGE"} text2={"PAYMENTS"} />
             <p className="text-base sm:text-lg">
               Card ending in: <span className="font-light ml-2">**1234</span>
@@ -187,7 +188,7 @@ const Account = () => {
               Stripe:{" "}
               <span className="font-light ml-2">jane.doe@example.com</span>
             </p>
-            <button className="w-[100px] bg-[#727D71] text-white text-sm sm:text-base font-bold rounded mt-10 px-8 py-2 hover:bg-slate-800">
+            <button className="w-[100px] bg-[#727D71] text-white text-xs sm:text-sm font-bold rounded mt-10 px-8 py-2 hover:bg-slate-800">
               Edit
             </button>
           </div>
