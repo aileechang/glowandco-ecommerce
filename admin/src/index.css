@@ -1,13 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Cantata+One&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@400;600&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 * {
-    font-family: Mulish;
-    background-color: #e1d7c7;
+    font-family: 'Inter', sans-serif;
 }
+
+.the-seasons {
+    font-family: 'The Seasons', serif;
+  }
+
+button, .btn {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+  }
 
 select, input, textarea {
     border: 1px solid #c2c2c2;
@@ -16,7 +24,5 @@ select, input, textarea {
 }
 
 .active {
-    background-color: #fbf0e4;
-    border-color: 
-    #efc499;
+    
 }

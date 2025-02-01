@@ -48,44 +48,30 @@ const Orders = ({ token }) => {
 
   return (
     <div>
-      <h3>Orders</h3>
+      <h3 className="text-slate-800 text-lg mb-3">Orders</h3>
       <div>
         {orders.map((order, index) => (
-          <div className="grid grid-cols-1 sm:grid-cols-[0.5fr_2fr_1fr] lg:grid-cols-[0.5fr_2fr_1fr_1fr_1fr] gap-3 items-start border-2 border-gray-200 p-5 md:p-8 my-3 md:my-4 text-xs sm:text-sm text-gray-700" key={index}>
+          <div className="grid grid-cols-1 sm:grid-cols-[0.5fr_2fr_1fr] lg:grid-cols-[0.5fr_2fr_1fr_1fr_1fr] gap-3 items-start border-t border-[#6D4C3D] p-5 md:p-8 text-xs sm:text-sm text-slate-800 font-medium" key={index}>
             <BsBoxSeam className="w-9 h-9"/>
             <div>
               <div>
-                <p>OrderID: {order.id}</p>
-                {order.items.map((item, index) => {
-                  if (index === order.items.length - 1) {
-                    return (
-                      <p className="py-0.5" key={index}>
-                        {item.name} x {item.quantity} <span>{item.size}</span>
-                      </p>
-                    );
-                  } else {
-                    return (
-                      <p className="py-0.5" key={index}>
-                        {item.name} x {item.quantity} <span>{item.size}</span> ,
-                      </p>
-                    );
-                  }
-                })}
+                <p>Order #: <span className="font-light">{order.confirmationCode}</span></p>
               </div>
-              <p className="mt-3 mb-2 font-semibold">{order.address.firstName + " " + order.address.lastName}</p>
+              <p className="mt-3 text-base">{order.address.firstName + " " + order.address.lastName}</p>
               <div>
-                <p>{`${order.address.street},`}</p>
-                <p>{`${order.address.city}, ${order.address.state}, ${order.address.country} ${order.address.zipcode}`}</p>
+                <p className="font-light">{`${order.address.street},`}</p>
+                <p className="font-light">{`${order.address.city}, ${order.address.state}, ${order.address.country} ${order.address.zipcode}`}</p>
               </div>
               <p>{order.address.phone}</p>
             </div>
             <div className="px-3">
-              <p>Date: {new Date(order.date).toLocaleDateString()}</p>
-              <p className="mt-3 text-sm sm:text-[15px]">Items: {order.items.length}</p>
-              <p className="mt-3">Method: {order.paymentMethod}</p>
-              <p className="mt-1">Payment: {order.payment ? 'Done' : 'Pending' }</p>
+              <p>Date: <span className="font-light">{new Date(order.date).toLocaleDateString()}</span></p>
+              <p className="mt-3 text-sm sm:text-[15px]">Items: <span className="font-light">{order.items.length}</span></p>
+              <p className="mt-3">Method: <span className="font-light">{order.paymentMethod}</span></p>
+              <p className="mt-1">Payment: <span className="font-light">{order.payment ? 'Paid' : 'Pending' }</span></p>
             </div>
-            <p className="text-sm sm:text-[15px]">Order Total: {currency}{order.amount}</p>
+            <p className="text-sm sm:text-[15px]">Order Total: <span className="font-light">{currency}{order.amount}</span></p>
+            <div className="flex flex-col gap-1">
             <select onChange={(e)=>handleStatus(e, order.id)} value={order.status} className="p-2 font-semibold">
               <option value="Order Placed">Order Placed</option>
               <option value="Processing">Processing</option>
@@ -93,6 +79,9 @@ const Orders = ({ token }) => {
               <option value="Out for Delivery">Out for Delivery</option>
               <option value="Delivered">Delivered</option>
             </select>
+            <button className="bg-[#727D71] text-white text-xs sm:text-sm font-bold rounded mt-4 lg:mt-0 px-8 py-2 hover:bg-slate-800 flex items-center justify-center">Details</button>
+            </div>
+
           </div>
         ))}
       </div>

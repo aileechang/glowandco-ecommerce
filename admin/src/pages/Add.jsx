@@ -99,11 +99,13 @@ const Add = ({ token }) => {
 
   return (
     <form
-      className="flex flex-col w-full items-start gap-3"
+      className="flex flex-col w-full items-start gap-3 text-slate-800"
       onSubmit={handleSubmit}
     >
-      <div>
-        <p className="mb-2">Upload Image</p>
+      <div className="w-full">
+      <p className="mb-2 text-slate-800 text-lg">Add a Product</p>
+      <hr className="border-[#6D4C3D]"/>
+        <p className="mb-2 mt-4 text-sm font-bold text-slate-600">Upload Image</p>
         <div className="flex gap-2">
           <label htmlFor="image1">
             <img
@@ -148,7 +150,7 @@ const Add = ({ token }) => {
       </div>
 
       <div className="w-full">
-        <p className="mb-2">Product name</p>
+        <p className="mb-2 text-sm font-bold text-slate-600">Product name</p>
         <input
           onChange={(e) => setName(e.target.value)}
           value={name}
@@ -160,7 +162,7 @@ const Add = ({ token }) => {
       </div>
 
       <div className="w-full">
-        <p className="mb-2">Description</p>
+        <p className="mb-2 text-sm font-bold text-slate-600">Description</p>
         <textarea
           onChange={(e) => setDescription(e.target.value)}
           value={description}
@@ -173,7 +175,7 @@ const Add = ({ token }) => {
 
       <div className="flex flex-col sm:flex-row gap-2 w-full sm:gap-8">
         <div>
-          <p className="mb-2">Category</p>
+          <p className="mb-2 text-sm font-bold text-slate-600">Category</p>
           <select
             className="w-full px-3 py-2"
             value={category}
@@ -187,7 +189,7 @@ const Add = ({ token }) => {
         </div>
 
         <div>
-          <p className="mb-2">Sub Category</p>
+          <p className="mb-2 text-sm font-bold text-slate-600">Sub Category</p>
           <select
             className="w-full px-3 py-2"
             value={subCategory}
@@ -202,7 +204,7 @@ const Add = ({ token }) => {
         </div>
 
         <div>
-          <p className="mb-2">Price</p>
+          <p className="mb-2 text-sm font-bold text-slate-600">Price</p>
           <input
             onChange={(e) => setPrice(e.target.value)}
             value={price}
@@ -215,13 +217,13 @@ const Add = ({ token }) => {
 
       
       <div className="w-full">
-        <p className="mb-2">Sizes</p>
+        <p className="mb-2 text-sm font-bold text-slate-600">Sizes</p>
         <div className="flex flex-wrap gap-3">
           {sizeOptions.map((size) => (
             <div
               key={size}
               className={`px-4 py-2 border rounded cursor-pointer ${
-                sizes.includes(size) ? "bg-orange-100" : "bg-slate-200"
+                sizes.includes(size) ? "border-[#6D4C3D] bg-white" : "bg-slate-100"
               }`}
               onClick={() => {
                 setSizes((prevSizes) =>
@@ -237,7 +239,7 @@ const Add = ({ token }) => {
         </div>
       </div>
 
-      <div className="flex gap-2 mt-2">
+      <div className="flex gap-2 mt-2 text-sm font-bold text-slate-600">
         <input
           type="checkbox"
           id="bestseller"
@@ -251,7 +253,7 @@ const Add = ({ token }) => {
 
       <button
         type="submit"
-        className="w-35 mt-4 px-6 py-2 bg-blue-400 text-white rounded"
+        className="w-35 mt-4 px-6 py-2 bg-[#727D71] text-white hover:bg-slate-800 rounded"
       >
         ADD PRODUCT
       </button>
