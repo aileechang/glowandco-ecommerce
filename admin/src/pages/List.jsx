@@ -71,6 +71,7 @@ const List = ({ token }) => {
         className="w-auto h-full object-contain"
         src={item.image[0]}
         alt={item.name}
+        loading="lazy"
       />
     </div>
 

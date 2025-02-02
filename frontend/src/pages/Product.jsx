@@ -40,7 +40,7 @@ const Product = () => {
             }
           </div>
           <div className='w-full sm:w-[80%]'>
-            <img src={image} className='w-full h-auto' alt={productData.name} />
+            <img src={image} className='w-full h-auto' alt={productData.name} loading='lazy'/>
           </div>
         </div>
 

@@ -1,4 +1,3 @@
-import { where } from "sequelize";
 import Order from "../models/orderModel.js";
 import User from "../models/userModel.js";
 import Stripe from "stripe";
@@ -76,10 +75,8 @@ const verifyStripe = async (req, res) => {
     }
 
     if (success === "true") {
-      // Update order to mark payment as completed
       await Order.update({ payment: true }, { where: { id: orderId } });
 
-      // Clear user's cart
       await User.update({ cartData: {} }, { where: { id: userId } });
 
       return res.json({

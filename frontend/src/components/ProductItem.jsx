@@ -12,6 +12,7 @@ const ProductItem = ({ id, image, name, price }) => {
       className="w-full h-full object-contain hover:scale-110 transition ease-in-out"
       src={image[0]}
       alt={name}
+      loading='lazy'
     />
   </div>
 

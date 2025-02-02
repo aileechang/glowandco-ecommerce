@@ -1,4 +1,5 @@
 import express from 'express';
+import compression from 'compression';
 import cors from 'cors';
 import 'dotenv/config';
 import { connectDB } from './config/sequelize.js';
@@ -16,6 +17,7 @@ connectCloudinary();
 
 // Middlewares
 app.use(express.json());
+app.use(compression());
 app.use(cors());
 
 // Api endpoints

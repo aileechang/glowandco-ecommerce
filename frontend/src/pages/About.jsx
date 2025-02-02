@@ -16,6 +16,7 @@ const About = () => {
             src={assets.aboutus}
             className="w-full h-auto object-cover rounded-lg"
             alt="About Us"
+            loading='lazy'
           />
         </div>
 

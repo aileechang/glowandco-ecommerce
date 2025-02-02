@@ -5,7 +5,7 @@ const Navbar = ({ token, setToken }) => {
   return (
     <div className="flex items-center py-2 px-[4%] justify-between">
       {/* Logo */}
-      <img className="w-[max(10%,180px)]" src={assets.logoadmin} alt="Logo" />
+      <img className="w-[max(10%,180px)]" src={assets.logoadmin} alt="Logo" loading='lazy' />
 
       {/* Logout Button (Conditional Rendering) */}
       {token === "" ? (

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { assets } from "../assets/assets";
-import { NavLink, Link, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 import {
   RiSearchLine,
   RiUser3Line,
@@ -22,7 +22,6 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const {
     setShowSearch,
-    cartItems,
     getCartCount,
     navigate,
     token,
@@ -63,7 +62,7 @@ const Navbar = () => {
       <div
         className={`fixed top-0 left-0 h-full w-[230px] sm:w-[210px] bg-[#F0EFEB] z-50 transform ${
           isOpen
-            ? "translate-x-0 border-r-2 border-[#6D4C3D]"
+            ? "translate-x-0 border-r border-[#6D4C3D]"
             : "-translate-x-full"
         } transition-transform duration-300 ease-in-out`}
       >
@@ -173,7 +172,7 @@ const Navbar = () => {
               </li>
             )}
 
-            <li className="mt-5 flex flex-row items-center justify-center gap-4">
+            <li className="mt-5 mx-6 flex flex-row items-center justify-between">
               <SlSocialFacebook className="w-5 h-5 cursor-pointer" />
               <SlSocialInstagram className="w-5 h-5 cursor-pointer" />
               <SlSocialPintarest className="w-5 h-5 cursor-pointer" />
@@ -189,6 +188,7 @@ const Navbar = () => {
           src={assets.logo}
           className="sm:w-[210px] w-[180px] h-auto"
           alt="logo"
+          loading='lazy'
         />
       </Link>
 

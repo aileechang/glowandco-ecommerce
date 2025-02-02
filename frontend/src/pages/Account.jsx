@@ -46,7 +46,7 @@ const Account = () => {
   };
 
   return (
-    <div className="flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t border-[#6D4C3D]">
+    <div className="flex flex-col min-h-[600px] sm:flex-row gap-1 sm:gap-10 pt-10 border-t border-[#6D4C3D]">
       {/* Left side */}
       <div className="min-w-60 h-auto border-b sm:border-b-0 sm:border-r border-[#6D4C3D]">
         {/* Mobile Menu (Dropdown) */}
@@ -117,16 +117,16 @@ const Account = () => {
       {/* Right side */}
       <div className="flex-1">
         {displayData === "Profile" && (
-          <div className="text-xl sm:text-2xl font-md flex flex-col gap-2">
+          <div className="text-xl font-md flex flex-col gap-2">
             <Title text1={"MY"} text2={"PROFILE"} />
-            <p className="text-base sm:text-lg">
+            <p className="text-sm sm:text-base">
               Name: <span className="font-light ml-2">Jane Doe</span>
             </p>
-            <p className="text-base sm:text-lg">
+            <p className="text-sm sm:text-base">
               Email:{" "}
               <span className="font-light ml-2">jane.doe@example.com</span>
             </p>
-            <p className="text-base sm:text-lg">
+            <p className="text-sm sm:text-base">
               Phone: <span className="font-light ml-2"></span>
             </p>
             <button className="w-[100px] bg-[#727D71] text-white text-xs sm:text-sm font-bold rounded mt-10 px-8 py-2 hover:bg-slate-800">
@@ -136,7 +136,7 @@ const Account = () => {
         )}
 
         {displayData === "Orders" && (
-          <div className="h-full text-xl sm:text-2xl font-md flex flex-col">
+          <div className="h-full text-xl font-md flex flex-col">
             <Title text1={"ORDER"} text2={"HISTORY"} />
             <hr className="border-[#6D4C3D]"/>
             {orders.length > 0
@@ -146,13 +146,13 @@ const Account = () => {
                     className="w-[70vw] sm:w-[50vw] flex flex-col lg:flex-row justify-between items-start lg:items-center gap-3 py-4 px-6 sm:px-4 border-b border-slate-300 text-slate-800"
                   >
                     <div>
-                      <p className="text-base sm:text-lg">
+                      <p className="text-sm sm:text-base">
                         Order:{" "}
                         <span className="font-medium ml-1">
                           {order.confirmationCode}
                         </span>
                       </p>
-                      <p className="text-base sm:text-lg">
+                      <p className="text-sm sm:text-base">
                         Date:{" "}
                         <span className="font-light ml-2">
                           {new Date(order.date).toLocaleDateString()}
@@ -160,10 +160,10 @@ const Account = () => {
                       </p>
                     </div>
                     <div>
-                      <p className="text-base sm:text-lg">
+                      <p className="text-sm sm:text-base">
                         Total: <span className="font-light ml-2">{currency}{order.amount.toFixed(2)}</span>
                       </p>
-                      <p className="text-base sm:text-lg">
+                      <p className="text-sm sm:text-base">
                         Status: <span className="font-light ml-2">{order.status}</span>
                       </p>
                     </div>
@@ -179,12 +179,12 @@ const Account = () => {
         )}
 
         {displayData === "Payment" && (
-          <div className="text-xl sm:text-2xl font-md flex flex-col gap-2">
+          <div className="text-xl font-md flex flex-col gap-2">
             <Title text1={"MANAGE"} text2={"PAYMENTS"} />
-            <p className="text-base sm:text-lg">
+            <p className="text-sm sm:text-base">
               Card ending in: <span className="font-light ml-2">**1234</span>
             </p>
-            <p className="text-base sm:text-lg">
+            <p className="text-sm sm:text-base">
               Stripe:{" "}
               <span className="font-light ml-2">jane.doe@example.com</span>
             </p>

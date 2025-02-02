@@ -16,6 +16,7 @@ const Contact = () => {
       src={assets.contactus}
       className="w-full h-auto object-cover rounded"
       alt="Contact Us"
+      loading='lazy'
     />
   </div>
 

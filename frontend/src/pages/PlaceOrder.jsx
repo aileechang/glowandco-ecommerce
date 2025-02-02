@@ -11,7 +11,6 @@ const PlaceOrder = () => {
   const {
     backendUrl,
     cartItems,
-    setCartItems,
     getCartAmount,
     delivery_fee,
     products,
@@ -207,7 +206,7 @@ const PlaceOrder = () => {
                   method === "stripe" ? "bg-slate-600" : ""
                 }`}
               ></p>
-              <img src={assets.stripe} className="h-7 mx-4" />
+              <img src={assets.stripe} className="h-7 mx-4" loading="lazy"/>
             </div>
           </div>
 

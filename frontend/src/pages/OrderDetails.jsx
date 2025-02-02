@@ -39,21 +39,21 @@ const OrderDetails = () => {
   }
 
   return (
-    <div className="flex flex-col pt-14 border-t border-[#6D4C3D] text-lg sm:text-xl font-md">
+    <div className="flex flex-col pt-14 border-t border-[#6D4C3D] text-sm sm:text-base font-md">
       <div className="mx-20">
-        <div className="text-2xl mb-3">
+        <div className="text-xl mb-3">
           <Title text1={"ORDER"} text2={"DETAILS"} />
         </div>
 
         <div className="flex sm:flex-row flex-col items-start sm:items-end md:gap-20 sm:gap-10 gap-2">
           <div>
-            <p className="text-base sm:text-lg">
+            <p className="text-sm sm:text-base">
               Order #:{" "}
               <span className="font-light ml-2">
                 {orderData.confirmationCode}
               </span>
             </p>
-            <p className="text-base sm:text-lg">
+            <p className="text-sm sm:text-base">
               Date:{" "}
               <span className="font-light ml-2">
                 {new Date(orderData.date).toLocaleDateString()}
@@ -61,13 +61,13 @@ const OrderDetails = () => {
             </p>
           </div>
           <div>
-            <p className="text-base sm:text-lg">
+            <p className="text-sm sm:text-base">
               Status:{" "}
               <span className="font-light ml-2">{orderData.status}</span>
             </p>
           </div>
           <div>
-            <p className="text-base sm:text-lg">
+            <p className="text-sm sm:text-base">
               Total:{" "}
               <span className="font-light ml-2">
                 {currency}
@@ -89,15 +89,16 @@ const OrderDetails = () => {
                   src={item.image[0]}
                   alt={item.name}
                   className="w-20 h-20 object-cover"
+                  loading='lazy'
                 />
               )}
 
               <div className="flex flex-col sm:flex-row sm:items-center gap-4 flex-1">
-                <p className="text-base sm:text-lg flex-1">
+                <p className="text-sm sm:text-base flex-1">
                   <span className="font-light">{item.name}</span>
                 </p>
 
-                <p className="text-base sm:text-lg flex-1">
+                <p className="text-sm sm:text-base flex-1">
                   {item.size ? (
                     <>
                       Size: <span className="font-light">{item.size}</span>
@@ -107,11 +108,11 @@ const OrderDetails = () => {
                   )}
                 </p>
 
-                <p className="text-base sm:text-lg flex-1">
+                <p className="text-sm sm:text-base flex-1">
                   Quantity: <span className="font-light">{item.quantity}</span>
                 </p>
 
-                <p className="text-base sm:text-lg flex-1">
+                <p className="text-sm sm:text-base flex-1">
                   Price:{" "}
                   <span className="font-light">
                     {currency}

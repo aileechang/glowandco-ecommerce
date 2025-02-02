@@ -1,5 +1,4 @@
 import React from 'react'
-import { assets } from '../assets/assets'
 import { RiExchangeFundsLine, RiShieldCheckLine } from "react-icons/ri";
 import { BiSupport } from "react-icons/bi";
 

@@ -8,10 +8,6 @@
     font-family: 'Inter', sans-serif;
 }
 
-.the-seasons {
-    font-family: 'The Seasons', serif;
-  }
-
 button, .btn {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
@@ -19,10 +15,6 @@ button, .btn {
 
 select, input, textarea {
     border: 1px solid #c2c2c2;
-    outline-color: #efc499;
+    outline-color: #727D71;
     border-radius: 4px;
-}
-
-.active {
-    
 }

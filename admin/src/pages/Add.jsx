@@ -223,7 +223,7 @@ const Add = ({ token }) => {
             <div
               key={size}
               className={`px-4 py-2 border rounded cursor-pointer ${
-                sizes.includes(size) ? "border-[#6D4C3D] bg-white" : "bg-slate-100"
+                sizes.includes(size) ? "border-[#727D71] bg-white" : "bg-slate-100"
               }`}
               onClick={() => {
                 setSizes((prevSizes) =>
