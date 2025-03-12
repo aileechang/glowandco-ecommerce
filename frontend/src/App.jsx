@@ -18,7 +18,7 @@ import Account from './pages/Account';
 
 const App = () => {
   return (
-    <div className='px-3 sm:px-[2vw] md:px-[3vw] lg:px-[5vw] bg-[#F0EFEB] min-h-screen'>
+    <div className='px-3 sm:px-[2vw] md:px-[3vw] lg:px-[5vw] bg-[#FAF9F7] min-h-screen'>
       <ToastContainer />
       <Navbar />
       <SearchBar />

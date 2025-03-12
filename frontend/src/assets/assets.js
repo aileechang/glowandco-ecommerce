@@ -2,7 +2,8 @@
 // Image Imports
 import logo from './logo.png';
 import stripe from './stripe.png';
-import hero from './hero.png';
+import hero1 from './hero1.png';
+import hero2 from './hero2.png';
 import aboutus from './aboutus.jpg';
 import contactus from './contactus.jpg';
 
@@ -10,7 +11,8 @@ import contactus from './contactus.jpg';
 export const assets = {
     logo,
     stripe,
-    hero: hero,
+    hero1,
+    hero2,
     aboutus,
     contactus,
 };
